@@ -23,6 +23,8 @@ public class UserBean {
 
     private String innermonologue;
 
+    private   String  userImg;
+
     public Integer getUserid() {
         return userid;
     }
@@ -36,7 +38,7 @@ public class UserBean {
     }
 
     public void setUsername(String username) {
-        this.username = username == null ? null : username.trim();
+        this.username = username;
     }
 
     public String getPassword() {
@@ -44,7 +46,7 @@ public class UserBean {
     }
 
     public void setPassword(String password) {
-        this.password = password == null ? null : password.trim();
+        this.password = password;
     }
 
     public String getAccount() {
@@ -52,7 +54,7 @@ public class UserBean {
     }
 
     public void setAccount(String account) {
-        this.account = account == null ? null : account.trim();
+        this.account = account;
     }
 
     public String getSex() {
@@ -60,7 +62,7 @@ public class UserBean {
     }
 
     public void setSex(String sex) {
-        this.sex = sex == null ? null : sex.trim();
+        this.sex = sex;
     }
 
     public String getUserphone() {
@@ -68,7 +70,7 @@ public class UserBean {
     }
 
     public void setUserphone(String userphone) {
-        this.userphone = userphone == null ? null : userphone.trim();
+        this.userphone = userphone;
     }
 
     public Integer getProvinceid() {
@@ -100,7 +102,7 @@ public class UserBean {
     }
 
     public void setMonthlyincome(String monthlyincome) {
-        this.monthlyincome = monthlyincome == null ? null : monthlyincome.trim();
+        this.monthlyincome = monthlyincome;
     }
 
     public String getInnermonologue() {
@@ -108,6 +110,32 @@ public class UserBean {
     }
 
     public void setInnermonologue(String innermonologue) {
-        this.innermonologue = innermonologue == null ? null : innermonologue.trim();
+        this.innermonologue = innermonologue;
+    }
+
+    public String getUserImg() {
+        return userImg;
+    }
+
+    public void setUserImg(String userImg) {
+        this.userImg = userImg;
+    }
+
+    @Override
+    public String toString() {
+        return "UserBean{" +
+                "userid=" + userid +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", account='" + account + '\'' +
+                ", sex='" + sex + '\'' +
+                ", userphone='" + userphone + '\'' +
+                ", provinceid=" + provinceid +
+                ", cityid=" + cityid +
+                ", districtid=" + districtid +
+                ", monthlyincome='" + monthlyincome + '\'' +
+                ", innermonologue='" + innermonologue + '\'' +
+                ", userImg='" + userImg + '\'' +
+                '}';
     }
 }

@@ -5,7 +5,7 @@ public class ChildrenBean {
 
     private String childrenname;
 
-    private Integer userid;
+
 
     public Integer getChildrenid() {
         return childrenid;
@@ -23,11 +23,4 @@ public class ChildrenBean {
         this.childrenname = childrenname == null ? null : childrenname.trim();
     }
 
-    public Integer getUserid() {
-        return userid;
-    }
-
-    public void setUserid(Integer userid) {
-        this.userid = userid;
-    }
 }
