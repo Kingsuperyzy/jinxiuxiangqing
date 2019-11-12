@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    #应用名称
+
     name: pd-searchs
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
@@ -12,11 +12,11 @@ spring:
     password: root
 eureka:
   client:
-    #eureka服务地址
+
     service-url:
       defaultZone: http://localhost:8080/eureka
 mybatis:
-  #mybatisxml文件的地址
+
   mapper-locations: classpath:mapper/*.xml
   #showsql
   configuration:
