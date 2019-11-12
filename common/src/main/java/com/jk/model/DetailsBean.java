@@ -70,4 +70,17 @@ public class DetailsBean {
     public void setUserid(Integer userid) {
         this.userid = userid;
     }
+
+    @Override
+    public String toString() {
+        return "DetailsBean{" +
+                "detailsid=" + detailsid +
+                ", shapeid=" + shapeid +
+                ", constellationid=" + constellationid +
+                ", nationid=" + nationid +
+                ", childrenid=" + childrenid +
+                ", marriedid=" + marriedid +
+                ", userid=" + userid +
+                '}';
+    }
 }

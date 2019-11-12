@@ -7,9 +7,9 @@ spring:
     name: pd-page
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/pinyougoudb
+    url: jdbc:mysql://localhost:3306/splendidweb
     username: root
-    password: root
+    password: 1130
 eureka:
   client:
 

@@ -20,4 +20,12 @@ public class MaritalStatusBean {
     public void setMaritalstatusname(String maritalstatusname) {
         this.maritalstatusname = maritalstatusname == null ? null : maritalstatusname.trim();
     }
+
+    @Override
+    public String toString() {
+        return "MaritalStatusBean{" +
+                "maritalstatusid=" + maritalstatusid +
+                ", maritalstatusname='" + maritalstatusname + '\'' +
+                '}';
+    }
 }

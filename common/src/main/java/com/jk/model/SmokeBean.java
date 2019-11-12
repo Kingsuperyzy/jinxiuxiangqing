@@ -20,4 +20,13 @@ public class SmokeBean {
     public void setSmokename(String smokename) {
         this.smokename = smokename == null ? null : smokename.trim();
     }
+
+
+    @Override
+    public String toString() {
+        return "SmokeBean{" +
+                "smokeid=" + smokeid +
+                ", smokename='" + smokename + '\'' +
+                '}';
+    }
 }

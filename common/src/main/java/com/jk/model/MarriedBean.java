@@ -20,4 +20,12 @@ public class MarriedBean {
     public void setMarriedname(String marriedname) {
         this.marriedname = marriedname == null ? null : marriedname.trim();
     }
+
+    @Override
+    public String toString() {
+        return "MarriedBean{" +
+                "marriedid=" + marriedid +
+                ", marriedname='" + marriedname + '\'' +
+                '}';
+    }
 }

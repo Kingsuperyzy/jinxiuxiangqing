@@ -20,4 +20,12 @@ public class ConstellationBean {
     public void setConstellationname(String constellationname) {
         this.constellationname = constellationname == null ? null : constellationname.trim();
     }
+
+    @Override
+    public String toString() {
+        return "ConstellationBean{" +
+                "constellationid=" + constellationid +
+                ", constellationname='" + constellationname + '\'' +
+                '}';
+    }
 }
