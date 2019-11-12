@@ -1,13 +1,8 @@
 package com.jk.zhhController;
 
-import com.jk.model.TreeBean;
-import com.jk.zhhService.zhhServices;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-
-import java.util.List;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * <pre>项目名称：
@@ -24,20 +19,13 @@ import java.util.List;
  * @version </pre>
  */
 @Controller
-@RequestMapping("zhh")
-public class zhhController {
+@RequestMapping("page")
+public class PageController {
 
-  @Autowired
-  private zhhServices zhhservice;
-
-  @RequestMapping("findTree")
-  @ResponseBody
-  public List<TreeBean> findTree(){
-    System.out.println(11111);
- return   zhhservice.findTree();
-  }
-
-
+    @RequestMapping("toMain")
+    public String toMain(){
+        return "main";
+    }
 
 
 }

@@ -1,6 +1,8 @@
-package com.jjk.zhhService;
+package com.jk.zhhService;
 
-import org.springframework.cloud.openfeign.FeignClient;
+import com.jk.model.TreeBean;
+
+import java.util.List;
 
 /**
  * <pre>项目名称：
@@ -16,6 +18,8 @@ import org.springframework.cloud.openfeign.FeignClient;
  * 修改备注：
  * @version </pre>
  */
-@FeignClient(value = "pd-page")
 public interface zhhService {
+
+
+    List<TreeBean> findTree();
 }
