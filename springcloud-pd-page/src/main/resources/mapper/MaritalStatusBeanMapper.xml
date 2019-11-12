@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jk.mapper.MaritalStatusBeanMapper" >
+  <resultMap id="BaseResultMap" type="com.jk.model.MaritalStatusBean" >
+    <id column="maritalStatusId" property="maritalstatusid" jdbcType="INTEGER" />
+    <result column="maritalStatusName" property="maritalstatusname" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    maritalStatusId, maritalStatusName
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_maritalstatus
+    where maritalStatusId = #{maritalstatusid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_maritalstatus
+    where maritalStatusId = #{maritalstatusid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.jk.model.MaritalStatusBean" >
+    insert into t_maritalstatus (maritalStatusId, maritalStatusName
+      )
+    values (#{maritalstatusid,jdbcType=INTEGER}, #{maritalstatusname,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.jk.model.MaritalStatusBean" >
+    insert into t_maritalstatus
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="maritalstatusid != null" >
+        maritalStatusId,
+      </if>
+      <if test="maritalstatusname != null" >
+        maritalStatusName,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="maritalstatusid != null" >
+        #{maritalstatusid,jdbcType=INTEGER},
+      </if>
+      <if test="maritalstatusname != null" >
+        #{maritalstatusname,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jk.model.MaritalStatusBean" >
+    update t_maritalstatus
+    <set >
+      <if test="maritalstatusname != null" >
+        maritalStatusName = #{maritalstatusname,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where maritalStatusId = #{maritalstatusid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jk.model.MaritalStatusBean" >
+    update t_maritalstatus
+    set maritalStatusName = #{maritalstatusname,jdbcType=VARCHAR}
+    where maritalStatusId = #{maritalstatusid,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jk.mapper.PartnerBeanMapper" >
+  <resultMap id="BaseResultMap" type="com.jk.model.PartnerBean" >
+    <id column="partnerId" property="partnerid" jdbcType="INTEGER" />
+    <result column="age" property="age" jdbcType="INTEGER" />
+    <result column="hight" property="hight" jdbcType="VARCHAR" />
+    <result column="educationId" property="educationid" jdbcType="INTEGER" />
+    <result column="maritalStatusId" property="maritalstatusid" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    partnerId, age, hight, educationId, maritalStatusId
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_partner
+    where partnerId = #{partnerid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_partner
+    where partnerId = #{partnerid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.jk.model.PartnerBean" >
+    insert into t_partner (partnerId, age, hight, 
+      educationId, maritalStatusId)
+    values (#{partnerid,jdbcType=INTEGER}, #{age,jdbcType=INTEGER}, #{hight,jdbcType=VARCHAR}, 
+      #{educationid,jdbcType=INTEGER}, #{maritalstatusid,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.jk.model.PartnerBean" >
+    insert into t_partner
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="partnerid != null" >
+        partnerId,
+      </if>
+      <if test="age != null" >
+        age,
+      </if>
+      <if test="hight != null" >
+        hight,
+      </if>
+      <if test="educationid != null" >
+        educationId,
+      </if>
+      <if test="maritalstatusid != null" >
+        maritalStatusId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="partnerid != null" >
+        #{partnerid,jdbcType=INTEGER},
+      </if>
+      <if test="age != null" >
+        #{age,jdbcType=INTEGER},
+      </if>
+      <if test="hight != null" >
+        #{hight,jdbcType=VARCHAR},
+      </if>
+      <if test="educationid != null" >
+        #{educationid,jdbcType=INTEGER},
+      </if>
+      <if test="maritalstatusid != null" >
+        #{maritalstatusid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jk.model.PartnerBean" >
+    update t_partner
+    <set >
+      <if test="age != null" >
+        age = #{age,jdbcType=INTEGER},
+      </if>
+      <if test="hight != null" >
+        hight = #{hight,jdbcType=VARCHAR},
+      </if>
+      <if test="educationid != null" >
+        educationId = #{educationid,jdbcType=INTEGER},
+      </if>
+      <if test="maritalstatusid != null" >
+        maritalStatusId = #{maritalstatusid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where partnerId = #{partnerid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jk.model.PartnerBean" >
+    update t_partner
+    set age = #{age,jdbcType=INTEGER},
+      hight = #{hight,jdbcType=VARCHAR},
+      educationId = #{educationid,jdbcType=INTEGER},
+      maritalStatusId = #{maritalstatusid,jdbcType=INTEGER}
+    where partnerId = #{partnerid,jdbcType=INTEGER}
+  </update>
+</mapper>

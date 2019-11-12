@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jk.mapper.DrinkBeanMapper" >
+  <resultMap id="BaseResultMap" type="com.jk.model.DrinkBean" >
+    <id column="drinkId" property="drinkid" jdbcType="INTEGER" />
+    <result column="drinkName" property="drinkname" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    drinkId, drinkName
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_drink
+    where drinkId = #{drinkid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_drink
+    where drinkId = #{drinkid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.jk.model.DrinkBean" >
+    insert into t_drink (drinkId, drinkName)
+    values (#{drinkid,jdbcType=INTEGER}, #{drinkname,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.jk.model.DrinkBean" >
+    insert into t_drink
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="drinkid != null" >
+        drinkId,
+      </if>
+      <if test="drinkname != null" >
+        drinkName,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="drinkid != null" >
+        #{drinkid,jdbcType=INTEGER},
+      </if>
+      <if test="drinkname != null" >
+        #{drinkname,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jk.model.DrinkBean" >
+    update t_drink
+    <set >
+      <if test="drinkname != null" >
+        drinkName = #{drinkname,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where drinkId = #{drinkid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jk.model.DrinkBean" >
+    update t_drink
+    set drinkName = #{drinkname,jdbcType=VARCHAR}
+    where drinkId = #{drinkid,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jk.mapper.LifeBeanMapper" >
+  <resultMap id="BaseResultMap" type="com.jk.model.LifeBean" >
+    <id column="lifeId" property="lifeid" jdbcType="INTEGER" />
+    <result column="housingSituationId" property="housingsituationid" jdbcType="INTEGER" />
+    <result column="carSituationId" property="carsituationid" jdbcType="INTEGER" />
+    <result column="smokeId" property="smokeid" jdbcType="INTEGER" />
+    <result column="drinkId" property="drinkid" jdbcType="INTEGER" />
+    <result column="userid" property="userid" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    lifeId, housingSituationId, carSituationId, smokeId, drinkId, userid
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_life
+    where lifeId = #{lifeid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_life
+    where lifeId = #{lifeid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.jk.model.LifeBean" >
+    insert into t_life (lifeId, housingSituationId, carSituationId, 
+      smokeId, drinkId, userid
+      )
+    values (#{lifeid,jdbcType=INTEGER}, #{housingsituationid,jdbcType=INTEGER}, #{carsituationid,jdbcType=INTEGER}, 
+      #{smokeid,jdbcType=INTEGER}, #{drinkid,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.jk.model.LifeBean" >
+    insert into t_life
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="lifeid != null" >
+        lifeId,
+      </if>
+      <if test="housingsituationid != null" >
+        housingSituationId,
+      </if>
+      <if test="carsituationid != null" >
+        carSituationId,
+      </if>
+      <if test="smokeid != null" >
+        smokeId,
+      </if>
+      <if test="drinkid != null" >
+        drinkId,
+      </if>
+      <if test="userid != null" >
+        userid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="lifeid != null" >
+        #{lifeid,jdbcType=INTEGER},
+      </if>
+      <if test="housingsituationid != null" >
+        #{housingsituationid,jdbcType=INTEGER},
+      </if>
+      <if test="carsituationid != null" >
+        #{carsituationid,jdbcType=INTEGER},
+      </if>
+      <if test="smokeid != null" >
+        #{smokeid,jdbcType=INTEGER},
+      </if>
+      <if test="drinkid != null" >
+        #{drinkid,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jk.model.LifeBean" >
+    update t_life
+    <set >
+      <if test="housingsituationid != null" >
+        housingSituationId = #{housingsituationid,jdbcType=INTEGER},
+      </if>
+      <if test="carsituationid != null" >
+        carSituationId = #{carsituationid,jdbcType=INTEGER},
+      </if>
+      <if test="smokeid != null" >
+        smokeId = #{smokeid,jdbcType=INTEGER},
+      </if>
+      <if test="drinkid != null" >
+        drinkId = #{drinkid,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null" >
+        userid = #{userid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where lifeId = #{lifeid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jk.model.LifeBean" >
+    update t_life
+    set housingSituationId = #{housingsituationid,jdbcType=INTEGER},
+      carSituationId = #{carsituationid,jdbcType=INTEGER},
+      smokeId = #{smokeid,jdbcType=INTEGER},
+      drinkId = #{drinkid,jdbcType=INTEGER},
+      userid = #{userid,jdbcType=INTEGER}
+    where lifeId = #{lifeid,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jk.mapper.NationBeanMapper" >
+  <resultMap id="BaseResultMap" type="com.jk.model.NationBean" >
+    <id column="nationId" property="nationid" jdbcType="INTEGER" />
+    <result column="nationName" property="nationname" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    nationId, nationName
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_nation
+    where nationId = #{nationid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_nation
+    where nationId = #{nationid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.jk.model.NationBean" >
+    insert into t_nation (nationId, nationName)
+    values (#{nationid,jdbcType=INTEGER}, #{nationname,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.jk.model.NationBean" >
+    insert into t_nation
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="nationid != null" >
+        nationId,
+      </if>
+      <if test="nationname != null" >
+        nationName,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="nationid != null" >
+        #{nationid,jdbcType=INTEGER},
+      </if>
+      <if test="nationname != null" >
+        #{nationname,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jk.model.NationBean" >
+    update t_nation
+    <set >
+      <if test="nationname != null" >
+        nationName = #{nationname,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where nationId = #{nationid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jk.model.NationBean" >
+    update t_nation
+    set nationName = #{nationname,jdbcType=VARCHAR}
+    where nationId = #{nationid,jdbcType=INTEGER}
+  </update>
+</mapper>

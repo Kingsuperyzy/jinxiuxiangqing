@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jk.mapper.CarSituationBeanMapper" >
+  <resultMap id="BaseResultMap" type="com.jk.model.CarSituationBean" >
+    <id column="carSituationId" property="carsituationid" jdbcType="INTEGER" />
+    <result column="carSituationName" property="carsituationname" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    carSituationId, carSituationName
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_carsituation
+    where carSituationId = #{carsituationid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_carsituation
+    where carSituationId = #{carsituationid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.jk.model.CarSituationBean" >
+    insert into t_carsituation (carSituationId, carSituationName)
+    values (#{carsituationid,jdbcType=INTEGER}, #{carsituationname,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.jk.model.CarSituationBean" >
+    insert into t_carsituation
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="carsituationid != null" >
+        carSituationId,
+      </if>
+      <if test="carsituationname != null" >
+        carSituationName,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="carsituationid != null" >
+        #{carsituationid,jdbcType=INTEGER},
+      </if>
+      <if test="carsituationname != null" >
+        #{carsituationname,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jk.model.CarSituationBean" >
+    update t_carsituation
+    <set >
+      <if test="carsituationname != null" >
+        carSituationName = #{carsituationname,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where carSituationId = #{carsituationid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jk.model.CarSituationBean" >
+    update t_carsituation
+    set carSituationName = #{carsituationname,jdbcType=VARCHAR}
+    where carSituationId = #{carsituationid,jdbcType=INTEGER}
+  </update>
+</mapper>

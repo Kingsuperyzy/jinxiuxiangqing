@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jk.mapper.UserBeanMapper" >
+  <resultMap id="BaseResultMap" type="com.jk.model.UserBean" >
+    <id column="userId" property="userid" jdbcType="INTEGER" />
+    <result column="userName" property="username" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="account" property="account" jdbcType="VARCHAR" />
+    <result column="sex" property="sex" jdbcType="VARCHAR" />
+    <result column="userPhone" property="userphone" jdbcType="VARCHAR" />
+    <result column="provinceId" property="provinceid" jdbcType="INTEGER" />
+    <result column="cityId" property="cityid" jdbcType="INTEGER" />
+    <result column="districtId" property="districtid" jdbcType="INTEGER" />
+    <result column="monthlyIncome" property="monthlyincome" jdbcType="VARCHAR" />
+    <result column="InnerMonologue" property="innermonologue" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    userId, userName, password, account, sex, userPhone, provinceId, cityId, districtId, 
+    monthlyIncome, InnerMonologue
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_user
+    where userId = #{userid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_user
+    where userId = #{userid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.jk.model.UserBean" >
+    insert into t_user (userId, userName, password, 
+      account, sex, userPhone, 
+      provinceId, cityId, districtId, 
+      monthlyIncome, InnerMonologue)
+    values (#{userid,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{account,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, #{userphone,jdbcType=VARCHAR}, 
+      #{provinceid,jdbcType=INTEGER}, #{cityid,jdbcType=INTEGER}, #{districtid,jdbcType=INTEGER}, 
+      #{monthlyincome,jdbcType=VARCHAR}, #{innermonologue,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.jk.model.UserBean" >
+    insert into t_user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userid != null" >
+        userId,
+      </if>
+      <if test="username != null" >
+        userName,
+      </if>
+      <if test="password != null" >
+        password,
+      </if>
+      <if test="account != null" >
+        account,
+      </if>
+      <if test="sex != null" >
+        sex,
+      </if>
+      <if test="userphone != null" >
+        userPhone,
+      </if>
+      <if test="provinceid != null" >
+        provinceId,
+      </if>
+      <if test="cityid != null" >
+        cityId,
+      </if>
+      <if test="districtid != null" >
+        districtId,
+      </if>
+      <if test="monthlyincome != null" >
+        monthlyIncome,
+      </if>
+      <if test="innermonologue != null" >
+        InnerMonologue,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userid != null" >
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="username != null" >
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="account != null" >
+        #{account,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="userphone != null" >
+        #{userphone,jdbcType=VARCHAR},
+      </if>
+      <if test="provinceid != null" >
+        #{provinceid,jdbcType=INTEGER},
+      </if>
+      <if test="cityid != null" >
+        #{cityid,jdbcType=INTEGER},
+      </if>
+      <if test="districtid != null" >
+        #{districtid,jdbcType=INTEGER},
+      </if>
+      <if test="monthlyincome != null" >
+        #{monthlyincome,jdbcType=VARCHAR},
+      </if>
+      <if test="innermonologue != null" >
+        #{innermonologue,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jk.model.UserBean" >
+    update t_user
+    <set >
+      <if test="username != null" >
+        userName = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="account != null" >
+        account = #{account,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        sex = #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="userphone != null" >
+        userPhone = #{userphone,jdbcType=VARCHAR},
+      </if>
+      <if test="provinceid != null" >
+        provinceId = #{provinceid,jdbcType=INTEGER},
+      </if>
+      <if test="cityid != null" >
+        cityId = #{cityid,jdbcType=INTEGER},
+      </if>
+      <if test="districtid != null" >
+        districtId = #{districtid,jdbcType=INTEGER},
+      </if>
+      <if test="monthlyincome != null" >
+        monthlyIncome = #{monthlyincome,jdbcType=VARCHAR},
+      </if>
+      <if test="innermonologue != null" >
+        InnerMonologue = #{innermonologue,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where userId = #{userid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jk.model.UserBean" >
+    update t_user
+    set userName = #{username,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      account = #{account,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=VARCHAR},
+      userPhone = #{userphone,jdbcType=VARCHAR},
+      provinceId = #{provinceid,jdbcType=INTEGER},
+      cityId = #{cityid,jdbcType=INTEGER},
+      districtId = #{districtid,jdbcType=INTEGER},
+      monthlyIncome = #{monthlyincome,jdbcType=VARCHAR},
+      InnerMonologue = #{innermonologue,jdbcType=VARCHAR}
+    where userId = #{userid,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jk.mapper.EducationBeanMapper" >
+  <resultMap id="BaseResultMap" type="com.jk.model.EducationBean" >
+    <id column="educationId" property="educationid" jdbcType="INTEGER" />
+    <result column="educationName" property="educationname" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    educationId, educationName
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_education
+    where educationId = #{educationid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_education
+    where educationId = #{educationid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.jk.model.EducationBean" >
+    insert into t_education (educationId, educationName)
+    values (#{educationid,jdbcType=INTEGER}, #{educationname,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.jk.model.EducationBean" >
+    insert into t_education
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="educationid != null" >
+        educationId,
+      </if>
+      <if test="educationname != null" >
+        educationName,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="educationid != null" >
+        #{educationid,jdbcType=INTEGER},
+      </if>
+      <if test="educationname != null" >
+        #{educationname,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jk.model.EducationBean" >
+    update t_education
+    <set >
+      <if test="educationname != null" >
+        educationName = #{educationname,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where educationId = #{educationid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jk.model.EducationBean" >
+    update t_education
+    set educationName = #{educationname,jdbcType=VARCHAR}
+    where educationId = #{educationid,jdbcType=INTEGER}
+  </update>
+</mapper>

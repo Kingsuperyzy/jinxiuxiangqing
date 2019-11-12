@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jk.mapper.SmokeBeanMapper" >
+  <resultMap id="BaseResultMap" type="com.jk.model.SmokeBean" >
+    <id column="smokeId" property="smokeid" jdbcType="INTEGER" />
+    <result column="smokeName" property="smokename" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    smokeId, smokeName
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_smoke
+    where smokeId = #{smokeid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_smoke
+    where smokeId = #{smokeid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.jk.model.SmokeBean" >
+    insert into t_smoke (smokeId, smokeName)
+    values (#{smokeid,jdbcType=INTEGER}, #{smokename,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.jk.model.SmokeBean" >
+    insert into t_smoke
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="smokeid != null" >
+        smokeId,
+      </if>
+      <if test="smokename != null" >
+        smokeName,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="smokeid != null" >
+        #{smokeid,jdbcType=INTEGER},
+      </if>
+      <if test="smokename != null" >
+        #{smokename,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jk.model.SmokeBean" >
+    update t_smoke
+    <set >
+      <if test="smokename != null" >
+        smokeName = #{smokename,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where smokeId = #{smokeid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jk.model.SmokeBean" >
+    update t_smoke
+    set smokeName = #{smokename,jdbcType=VARCHAR}
+    where smokeId = #{smokeid,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jk.mapper.ChildrenBeanMapper" >
+  <resultMap id="BaseResultMap" type="com.jk.model.ChildrenBean" >
+    <id column="childrenId" property="childrenid" jdbcType="INTEGER" />
+    <result column="childrenName" property="childrenname" jdbcType="VARCHAR" />
+    <result column="userId" property="userid" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    childrenId, childrenName, userId
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_children
+    where childrenId = #{childrenid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_children
+    where childrenId = #{childrenid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.jk.model.ChildrenBean" >
+    insert into t_children (childrenId, childrenName, userId
+      )
+    values (#{childrenid,jdbcType=INTEGER}, #{childrenname,jdbcType=VARCHAR}, #{userid,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.jk.model.ChildrenBean" >
+    insert into t_children
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="childrenid != null" >
+        childrenId,
+      </if>
+      <if test="childrenname != null" >
+        childrenName,
+      </if>
+      <if test="userid != null" >
+        userId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="childrenid != null" >
+        #{childrenid,jdbcType=INTEGER},
+      </if>
+      <if test="childrenname != null" >
+        #{childrenname,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jk.model.ChildrenBean" >
+    update t_children
+    <set >
+      <if test="childrenname != null" >
+        childrenName = #{childrenname,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null" >
+        userId = #{userid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where childrenId = #{childrenid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jk.model.ChildrenBean" >
+    update t_children
+    set childrenName = #{childrenname,jdbcType=VARCHAR},
+      userId = #{userid,jdbcType=INTEGER}
+    where childrenId = #{childrenid,jdbcType=INTEGER}
+  </update>
+</mapper>

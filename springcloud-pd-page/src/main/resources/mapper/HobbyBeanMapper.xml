@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jk.mapper.HobbyBeanMapper" >
+  <resultMap id="BaseResultMap" type="com.jk.model.HobbyBean" >
+    <id column="hobbyId" property="hobbyid" jdbcType="INTEGER" />
+    <result column="hobbyName" property="hobbyname" jdbcType="VARCHAR" />
+    <result column="food" property="food" jdbcType="VARCHAR" />
+    <result column="celebrity" property="celebrity" jdbcType="VARCHAR" />
+    <result column="book" property="book" jdbcType="VARCHAR" />
+    <result column="thingToDo" property="thingtodo" jdbcType="VARCHAR" />
+    <result column="userId" property="userid" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    hobbyId, hobbyName, food, celebrity, book, thingToDo, userId
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_hobby
+    where hobbyId = #{hobbyid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_hobby
+    where hobbyId = #{hobbyid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.jk.model.HobbyBean" >
+    insert into t_hobby (hobbyId, hobbyName, food, 
+      celebrity, book, thingToDo, 
+      userId)
+    values (#{hobbyid,jdbcType=INTEGER}, #{hobbyname,jdbcType=VARCHAR}, #{food,jdbcType=VARCHAR}, 
+      #{celebrity,jdbcType=VARCHAR}, #{book,jdbcType=VARCHAR}, #{thingtodo,jdbcType=VARCHAR}, 
+      #{userid,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.jk.model.HobbyBean" >
+    insert into t_hobby
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="hobbyid != null" >
+        hobbyId,
+      </if>
+      <if test="hobbyname != null" >
+        hobbyName,
+      </if>
+      <if test="food != null" >
+        food,
+      </if>
+      <if test="celebrity != null" >
+        celebrity,
+      </if>
+      <if test="book != null" >
+        book,
+      </if>
+      <if test="thingtodo != null" >
+        thingToDo,
+      </if>
+      <if test="userid != null" >
+        userId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="hobbyid != null" >
+        #{hobbyid,jdbcType=INTEGER},
+      </if>
+      <if test="hobbyname != null" >
+        #{hobbyname,jdbcType=VARCHAR},
+      </if>
+      <if test="food != null" >
+        #{food,jdbcType=VARCHAR},
+      </if>
+      <if test="celebrity != null" >
+        #{celebrity,jdbcType=VARCHAR},
+      </if>
+      <if test="book != null" >
+        #{book,jdbcType=VARCHAR},
+      </if>
+      <if test="thingtodo != null" >
+        #{thingtodo,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jk.model.HobbyBean" >
+    update t_hobby
+    <set >
+      <if test="hobbyname != null" >
+        hobbyName = #{hobbyname,jdbcType=VARCHAR},
+      </if>
+      <if test="food != null" >
+        food = #{food,jdbcType=VARCHAR},
+      </if>
+      <if test="celebrity != null" >
+        celebrity = #{celebrity,jdbcType=VARCHAR},
+      </if>
+      <if test="book != null" >
+        book = #{book,jdbcType=VARCHAR},
+      </if>
+      <if test="thingtodo != null" >
+        thingToDo = #{thingtodo,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null" >
+        userId = #{userid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where hobbyId = #{hobbyid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jk.model.HobbyBean" >
+    update t_hobby
+    set hobbyName = #{hobbyname,jdbcType=VARCHAR},
+      food = #{food,jdbcType=VARCHAR},
+      celebrity = #{celebrity,jdbcType=VARCHAR},
+      book = #{book,jdbcType=VARCHAR},
+      thingToDo = #{thingtodo,jdbcType=VARCHAR},
+      userId = #{userid,jdbcType=INTEGER}
+    where hobbyId = #{hobbyid,jdbcType=INTEGER}
+  </update>
+</mapper>
