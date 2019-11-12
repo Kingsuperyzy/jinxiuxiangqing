@@ -1,0 +1,23 @@
+server:
+  port: 8092
+
+spring:
+  application:
+    #应用名称
+    name: pd-server
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/pinyougoudb
+    username: root
+    password: root
+eureka:
+  client:
+    #eureka服务地址
+    service-url:
+      defaultZone: http://localhost:8080/eureka
+mybatis:
+  #mybatisxml文件的地址
+  mapper-locations: classpath:mapper/*.xml
+  #showsql
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

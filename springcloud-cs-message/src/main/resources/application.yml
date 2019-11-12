@@ -1,0 +1,17 @@
+server:
+  port: 8086
+
+spring:
+  application:
+    #应用名称
+    name: cs-message
+
+eureka:
+  client:
+    #eureka服务地址
+    service-url:
+      defaultZone: http://localhost:8080/eureka
+feign:
+  hystrix:
+    #开启断路器
+    enabled: true

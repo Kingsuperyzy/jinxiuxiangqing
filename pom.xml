@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.jk</groupId>
+    <artifactId>jinxiuxiangqing</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>springcloud-api</module>
+        <module>common</module>
+        <module>springcloud-pd-searchs</module>
+        <module>springcloud-pd-server</module>
+        <module>springcloud-pd-message</module>
+        <module>springcloud-pd-page</module>
+        <module>springcloud-cs-home</module>
+        <module>springcloud-cs-message</module>
+        <module>springcloud-cs-search</module>
+        <module>springcloud-cs-service</module>
+        <module>springcloud-zuul</module>
+        <module>springcloud-eureka</module>
+    </modules>
+
+
+</project>

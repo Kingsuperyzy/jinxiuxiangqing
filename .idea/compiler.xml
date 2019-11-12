@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="springcloud-cs-search" />
+        <module name="springcloud-pd-page" />
+        <module name="springcloud-pd-searchs" />
+        <module name="springcloud-cs-service" />
+        <module name="common" />
+        <module name="springcloud-api" />
+        <module name="springcloud-zuul" />
+        <module name="springcloud-pd-message" />
+        <module name="springcloud-eureka" />
+        <module name="springcloud-cs-message" />
+        <module name="springcloud-pd-server" />
+        <module name="springcloud-cs-home" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="springcloud-consumer-home" target="1.8" />
+      <module name="springcloud-consumer-homepage" target="1.8" />
+      <module name="springcloud-cs-page" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="springcloud-api" options="-parameters" />
+      <module name="springcloud-consumer-home" options="-parameters" />
+      <module name="springcloud-consumer-homepage" options="-parameters" />
+      <module name="springcloud-cs-home" options="-parameters" />
+      <module name="springcloud-cs-message" options="-parameters" />
+      <module name="springcloud-cs-page" options="-parameters" />
+      <module name="springcloud-cs-search" options="-parameters" />
+      <module name="springcloud-cs-service" options="-parameters" />
+      <module name="springcloud-eureka" options="-parameters" />
+      <module name="springcloud-pd-message" options="-parameters" />
+      <module name="springcloud-pd-page" options="-parameters" />
+      <module name="springcloud-pd-searchs" options="-parameters" />
+      <module name="springcloud-pd-server" options="-parameters" />
+      <module name="springcloud-zuul" options="-parameters" />
+    </option>
+  </component>
+</project>

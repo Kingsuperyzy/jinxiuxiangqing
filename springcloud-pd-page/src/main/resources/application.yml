@@ -1,0 +1,23 @@
+server:
+  port: 8081
+
+spring:
+  application:
+
+    name: pd-page
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/pinyougoudb
+    username: root
+    password: root
+eureka:
+  client:
+
+    service-url:
+      defaultZone: http://localhost:8080/eureka
+mybatis:
+
+  mapper-locations: classpath:mapper/*.xml
+  #showsql
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

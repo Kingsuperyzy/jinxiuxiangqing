@@ -1,0 +1,29 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: zuul
+
+eureka:
+  client:
+
+    service-url:
+      defaultZone: http://localhost:8080/eureka
+
+
+zuul:
+  routes:
+    api-a:
+      path: /api-a/**
+      serviceId: cs-home
+    api-b:
+      path: /api-b/**
+      serviceId: cs-message
+    api-c:
+      path: /api-c/**
+      serviceId: cs-search
+    api-d:
+      path: /api-d/**
+      serviceId: cs-service
+
