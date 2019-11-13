@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/bootstra3/js/bootstrap.js"></script>
+<link rel="stylesheet" href="../js/bootstra3/css/bootstrap.css">
+<script src="../js/bootstrap-table/bootstrap-table.js"></script>
+<link rel="stylesheet" href="../js/bootstrap-table/bootstrap-table.css">
+<script src="../js/bootstrap-table/locale/bootstrap-table-zh-CN.js"></script>
+<script src="../js/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+<script src="../js/bootstrap-datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+<link rel="stylesheet" href="../js/bootstrap-datetimepicker/css/bootstrap-datetimepicker.css">
+<script src="../js/bootstrap-bootbox/bootbox.all.min.js"></script>
+<body>
+<form id="userForm" class="form-horizontal">
+    <input type="text" name="detailsid" id="detailsid">
+    <input type="text" name="userid" id="userid" >
+    <div class="form-group">
+    </div>
+    <!-- 第一行 -->
+    <div class="form-group">
+        <label  class="col-sm-2 control-label">体型</label>
+        <div class="col-sm-5">
+            <select id="queryshapeid" class="form-control"  name="shapeid">
+            </select>
+        </div>
+
+        <div class="col-sm-8"></div>
+    </div>
+    <!-- 第二行 -->
+    <div class="form-group">
+        <label  class="col-sm-2 control-label">星座</label>
+        <div class="col-sm-5">
+            <select id="queryconstellationid" class="form-control"  name="constellationid">
+            </select>
+        </div>
+        <div class="col-sm-8"></div>
+    </div>
+
+    <!-- 第三行 -->
+    <div class="form-group">
+        <label class="col-sm-2 control-label">民族</label>
+        <div class="col-sm-5">
+            <select id="querynationid" class="form-control"  name="nationid">
+            </select>
+        </div>
+        <div class="col-sm-8"></div>
+    </div>
+    <!-- 第四行 -->
+    <div class="form-group">
+        <label  class="col-sm-2 control-label">有没有孩子</label>
+        <div class="col-sm-5">
+            <select id="querychildrenid" class="form-control"  name="childrenid">
+            </select>
+        </div>
+        <div class="col-sm-8"></div>
+    </div>
+
+    <!-- 第五行 -->
+    <div class="form-group">
+        <label class="col-sm-2 control-label">何时结婚</label>
+        <div class="col-sm-5">
+            <select id="querymarriedid" class="form-control"  name="marriedid">
+            </select>
+        </div>
+        <div class="col-sm-8"></div>
+    </div>
+    <!-- 第七行 -->
+    <div class="form-group">
+        <div class="col-sm-4" align="right">
+            <button onclick="updateDetailUser()" type="button" class="btn btn-info"><i class="glyphicon glyphicon-plus"></i>保存</button>
+        </div>
+    </div>
+</form>
+</body>
+<script th:inline="javascript">
+    var userId = [[${userId}]];
+
+    $("#userid").val(userId);
+</script>
+
+
+<script>
+
+    function queryshapeid(){
+        $.ajax({
+            url:"../ys/queryshapeid",
+            type:"post",
+            async:false,
+            data:{},
+            success:function(data){
+                var html="<option value='-1'>请选择</option>";
+                for (var i = 0; i < data.length; i++) {
+                    html+="<option value='"+data[i].shapeid+"'>"+data[i].shapename+"</option>";
+                }
+                $("#queryshapeid").html(html);
+            }
+        })
+
+    }
+    function queryconstellationid(){
+        $.ajax({
+            url:"../ys/queryconstellationid",
+            type:"post",
+            async:false,
+            data:{},
+            success:function(data){
+                var html="<option value='-1'>请选择</option>";
+                for (var i = 0; i < data.length; i++) {
+                    html+="<option value='"+data[i].constellationid+"'>"+data[i].constellationname+"</option>";
+                }
+                $("#queryconstellationid").html(html);
+            }
+        })
+
+    }
+    function querynationid(){
+        $.ajax({
+            url:"../ys/querynationid",
+            type:"post",
+            async:false,
+            data:{},
+            success:function(data){
+                var html="<option value='-1'>请选择</option>";
+                for (var i = 0; i < data.length; i++) {
+                    html+="<option value='"+data[i].nationid+"'>"+data[i].nationname+"</option>";
+                }
+                $("#querynationid").html(html);
+            }
+        })
+
+    }
+    function querychildrenid(){
+        $.ajax({
+            url:"../ys/querychildrenid",
+            type:"post",
+            async:false,
+            data:{},
+            success:function(data){
+                var html="<option value='-1'>请选择</option>";
+                for (var i = 0; i < data.length; i++) {
+                    html+="<option value='"+data[i].childrenid+"'>"+data[i].childrenname+"</option>";
+                }
+                $("#querychildrenid").html(html);
+            }
+        })
+
+    }
+function querymarriedid(){
+        $.ajax({
+            url:"../ys/querymarriedid",
+            type:"post",
+            async:false,
+            data:{},
+            success:function(data){
+                var html="<option value='-1'>请选择</option>";
+                for (var i = 0; i < data.length; i++) {
+                    html+="<option value='"+data[i].marriedid+"'>"+data[i].marriedname+"</option>";
+                }
+                $("#querymarriedid").html(html);
+            }
+        })
+
+    }
+
+    $(function(){
+        findUserById();
+    })
+
+
+    function findUserById(){
+
+        alert(userId)
+        queryshapeid();
+        queryconstellationid();
+        querynationid()
+        querychildrenid();
+        querymarriedid();
+        $.post("../ys/findDetailById",{userId:userId},function(data){
+            $("#detailsid").val(data.detailsid);
+            $("#userid").val(data.userid);
+           $("#queryshapeid").val(data.shapeid);
+           $("#queryconstellationid").val(data.constellationid);
+           $("#querynationid").val(data.nationid);
+           $("#querychildrenid").val(data.childrenid);
+           $("#querymarriedid").val(data.marriedid);
+           /*  $("#userNumber").val(data.userNumber);
+            $("#phone").val(data.phone);
+            $("#age").val(data.age);
+            $("#sex").val(data.sex);
+            $("#sex1").val(data.sex);*/
+        })
+    }
+
+
+    //保存用户信息
+    function updateDetailUser(){
+        $.ajax({
+            url:"../ys/updateDetailUser",
+            data:$("#userForm").serialize(),
+            type:"post",
+            success:function(data){
+                if (data) {
+                    bootbox.alert("保存成功");
+
+                }else{
+                    bootbox.alert("保存失败");
+                }
+            }
+        })
+    }
+</script>
+</html>

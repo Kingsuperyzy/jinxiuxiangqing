@@ -7,12 +7,11 @@ spring:
     name: pd-page
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/pinyougoudb
+    url: jdbc:mysql://192.168.1.11:3306/splendidweb
     username: root
-    password: root
+    password: 1130
 eureka:
   client:
-
     service-url:
       defaultZone: http://localhost:8080/eureka
 mybatis:

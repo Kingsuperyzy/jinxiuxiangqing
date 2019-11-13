@@ -6,7 +6,7 @@
     <result column="userName" property="username" jdbcType="VARCHAR" />
     <result column="password" property="password" jdbcType="VARCHAR" />
     <result column="account" property="account" jdbcType="VARCHAR" />
-    <result column="sex" property="sex" jdbcType="VARCHAR" />
+    <result column="sex" property="sex" jdbcType="INTEGER" />
     <result column="userPhone" property="userphone" jdbcType="VARCHAR" />
     <result column="provinceId" property="provinceid" jdbcType="INTEGER" />
     <result column="cityId" property="cityid" jdbcType="INTEGER" />
@@ -34,7 +34,7 @@
       provinceId, cityId, districtId, 
       monthlyIncome, InnerMonologue)
     values (#{userid,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
-      #{account,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, #{userphone,jdbcType=VARCHAR}, 
+      #{account,jdbcType=VARCHAR}, #{sex}, #{userphone,jdbcType=VARCHAR},
       #{provinceid,jdbcType=INTEGER}, #{cityid,jdbcType=INTEGER}, #{districtid,jdbcType=INTEGER}, 
       #{monthlyincome,jdbcType=VARCHAR}, #{innermonologue,jdbcType=VARCHAR})
   </insert>
@@ -89,7 +89,7 @@
         #{account,jdbcType=VARCHAR},
       </if>
       <if test="sex != null" >
-        #{sex,jdbcType=VARCHAR},
+        #{sex},
       </if>
       <if test="userphone != null" >
         #{userphone,jdbcType=VARCHAR},
@@ -124,7 +124,7 @@
         account = #{account,jdbcType=VARCHAR},
       </if>
       <if test="sex != null" >
-        sex = #{sex,jdbcType=VARCHAR},
+        sex = #{sex},
       </if>
       <if test="userphone != null" >
         userPhone = #{userphone,jdbcType=VARCHAR},
@@ -152,7 +152,7 @@
     set userName = #{username,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},
       account = #{account,jdbcType=VARCHAR},
-      sex = #{sex,jdbcType=VARCHAR},
+      sex = #{sex},
       userPhone = #{userphone,jdbcType=VARCHAR},
       provinceId = #{provinceid,jdbcType=INTEGER},
       cityId = #{cityid,jdbcType=INTEGER},

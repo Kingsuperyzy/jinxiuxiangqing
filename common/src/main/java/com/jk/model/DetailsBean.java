@@ -5,15 +5,63 @@ public class DetailsBean {
 
     private Integer shapeid;
 
+   private String  shapename;//体型
+
     private Integer constellationid;
+    private String constellationname;//星座
 
     private Integer nationid;
+    private String nationname;//民族
 
     private Integer childrenid;
+    private String childrenname;//是否想要孩子
 
     private Integer marriedid;
 
+    private String marriedname;//何时结婚
+
     private Integer userid;
+
+
+    public String getShapename() {
+        return shapename;
+    }
+
+    public void setShapename(String shapename) {
+        this.shapename = shapename;
+    }
+
+    public String getConstellationname() {
+        return constellationname;
+    }
+
+    public void setConstellationname(String constellationname) {
+        this.constellationname = constellationname;
+    }
+
+    public String getNationname() {
+        return nationname;
+    }
+
+    public void setNationname(String nationname) {
+        this.nationname = nationname;
+    }
+
+    public String getChildrenname() {
+        return childrenname;
+    }
+
+    public void setChildrenname(String childrenname) {
+        this.childrenname = childrenname;
+    }
+
+    public String getMarriedname() {
+        return marriedname;
+    }
+
+    public void setMarriedname(String marriedname) {
+        this.marriedname = marriedname;
+    }
 
     public Integer getDetailsid() {
         return detailsid;
@@ -69,5 +117,24 @@ public class DetailsBean {
 
     public void setUserid(Integer userid) {
         this.userid = userid;
+    }
+
+
+    @Override
+    public String toString() {
+        return "DetailsBean{" +
+                "detailsid=" + detailsid +
+                ", shapeid=" + shapeid +
+                ", shapename='" + shapename + '\'' +
+                ", constellationid=" + constellationid +
+                ", constellationname='" + constellationname + '\'' +
+                ", nationid=" + nationid +
+                ", nationname='" + nationname + '\'' +
+                ", childrenid=" + childrenid +
+                ", childrenname='" + childrenname + '\'' +
+                ", marriedid=" + marriedid +
+                ", marriedname='" + marriedname + '\'' +
+                ", userid=" + userid +
+                '}';
     }
 }

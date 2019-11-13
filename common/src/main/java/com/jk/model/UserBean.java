@@ -9,7 +9,7 @@ public class UserBean {
 
     private String account;
 
-    private String sex;
+    private Integer sex;
 
     private String userphone;
 
@@ -57,11 +57,11 @@ public class UserBean {
         this.account = account;
     }
 
-    public String getSex() {
+    public Integer getSex() {
         return sex;
     }
 
-    public void setSex(String sex) {
+    public void setSex(Integer sex) {
         this.sex = sex;
     }
 
@@ -128,7 +128,7 @@ public class UserBean {
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", account='" + account + '\'' +
-                ", sex='" + sex + '\'' +
+                ", sex=" + sex +
                 ", userphone='" + userphone + '\'' +
                 ", provinceid=" + provinceid +
                 ", cityid=" + cityid +

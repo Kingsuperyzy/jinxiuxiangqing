@@ -13,5 +13,4 @@ eureka:
       defaultZone: http://localhost:8080/eureka
 feign:
   hystrix:
-
     enabled: true
