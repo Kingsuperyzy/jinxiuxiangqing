@@ -22,9 +22,24 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("page")
 public class PageController {
 
+
+    /**
+     * 跳转到树页面
+     * @return
+     */
     @RequestMapping("toMain")
     public String toMain(){
         return "main";
+    }
+
+
+    /**
+     * 跳转到择偶页面
+     * @return
+     */
+    @RequestMapping("toPartner")
+    public String toPartner(){
+        return "PartnerPage";
     }
 
 

@@ -1,31 +1,31 @@
 package com.jk.model;
 
 public class DrinkBean {
-    private Integer drinkid;
+    private Integer drinkId;
 
-    private String drinkname;
+    private String drinkName;
 
-    public Integer getDrinkid() {
-        return drinkid;
+    public Integer getDrinkId() {
+        return drinkId;
     }
 
-    public void setDrinkid(Integer drinkid) {
-        this.drinkid = drinkid;
+    public void setDrinkId(Integer drinkId) {
+        this.drinkId = drinkId;
     }
 
-    public String getDrinkname() {
-        return drinkname;
+    public String getDrinkName() {
+        return drinkName;
     }
 
-    public void setDrinkname(String drinkname) {
-        this.drinkname = drinkname == null ? null : drinkname.trim();
+    public void setDrinkName(String drinkName) {
+        this.drinkName = drinkName;
     }
 
     @Override
     public String toString() {
         return "DrinkBean{" +
-                "drinkid=" + drinkid +
-                ", drinkname='" + drinkname + '\'' +
+                "drinkId=" + drinkId +
+                ", drinkName='" + drinkName + '\'' +
                 '}';
     }
 }

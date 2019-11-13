@@ -1,32 +1,31 @@
 package com.jk.model;
 
 public class SmokeBean {
-    private Integer smokeid;
+    private Integer smokeId;
 
-    private String smokename;
+    private String smokeName;
 
-    public Integer getSmokeid() {
-        return smokeid;
+    public Integer getSmokeId() {
+        return smokeId;
     }
 
-    public void setSmokeid(Integer smokeid) {
-        this.smokeid = smokeid;
+    public void setSmokeId(Integer smokeId) {
+        this.smokeId = smokeId;
     }
 
-    public String getSmokename() {
-        return smokename;
+    public String getSmokeName() {
+        return smokeName;
     }
 
-    public void setSmokename(String smokename) {
-        this.smokename = smokename == null ? null : smokename.trim();
+    public void setSmokeName(String smokeName) {
+        this.smokeName = smokeName;
     }
-
 
     @Override
     public String toString() {
         return "SmokeBean{" +
-                "smokeid=" + smokeid +
-                ", smokename='" + smokename + '\'' +
+                "smokeId=" + smokeId +
+                ", smokeName='" + smokeName + '\'' +
                 '}';
     }
 }

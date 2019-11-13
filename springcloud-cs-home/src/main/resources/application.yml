@@ -5,7 +5,8 @@ spring:
   application:
 
     name: cs-home
-
+  main:
+    allow-bean-definition-overriding: true
 eureka:
   client:
 

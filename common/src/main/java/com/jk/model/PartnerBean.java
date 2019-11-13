@@ -13,14 +13,19 @@ public class PartnerBean {
 
     private Integer   userId;
 
+    private   String   monthlyIncome;
 
-    public Integer getUserId() {
-        return userId;
-    }
+    private  Integer  provinceId;
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
+    private   Integer   cityId;
+
+    private   Integer  districtId;
+
+    private   Integer  childrenId;
+
+    private   Integer  smokeId;
+
+    private   Integer  drinkId;
 
     public Integer getPartnerid() {
         return partnerid;
@@ -43,7 +48,7 @@ public class PartnerBean {
     }
 
     public void setHight(String hight) {
-        this.hight = hight == null ? null : hight.trim();
+        this.hight = hight;
     }
 
     public Integer getEducationid() {
@@ -62,6 +67,70 @@ public class PartnerBean {
         this.maritalstatusid = maritalstatusid;
     }
 
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
+
+    public String getMonthlyIncome() {
+        return monthlyIncome;
+    }
+
+    public void setMonthlyIncome(String monthlyIncome) {
+        this.monthlyIncome = monthlyIncome;
+    }
+
+    public Integer getProvinceId() {
+        return provinceId;
+    }
+
+    public void setProvinceId(Integer provinceId) {
+        this.provinceId = provinceId;
+    }
+
+    public Integer getCityId() {
+        return cityId;
+    }
+
+    public void setCityId(Integer cityId) {
+        this.cityId = cityId;
+    }
+
+    public Integer getDistrictId() {
+        return districtId;
+    }
+
+    public void setDistrictId(Integer districtId) {
+        this.districtId = districtId;
+    }
+
+    public Integer getChildrenId() {
+        return childrenId;
+    }
+
+    public void setChildrenId(Integer childrenId) {
+        this.childrenId = childrenId;
+    }
+
+    public Integer getSmokeId() {
+        return smokeId;
+    }
+
+    public void setSmokeId(Integer smokeId) {
+        this.smokeId = smokeId;
+    }
+
+    public Integer getDrinkId() {
+        return drinkId;
+    }
+
+    public void setDrinkId(Integer drinkId) {
+        this.drinkId = drinkId;
+    }
+
     @Override
     public String toString() {
         return "PartnerBean{" +
@@ -71,6 +140,13 @@ public class PartnerBean {
                 ", educationid=" + educationid +
                 ", maritalstatusid=" + maritalstatusid +
                 ", userId=" + userId +
+                ", monthlyIncome='" + monthlyIncome + '\'' +
+                ", provinceId=" + provinceId +
+                ", cityId=" + cityId +
+                ", districtId=" + districtId +
+                ", childrenId=" + childrenId +
+                ", smokeId=" + smokeId +
+                ", drinkId=" + drinkId +
                 '}';
     }
 }

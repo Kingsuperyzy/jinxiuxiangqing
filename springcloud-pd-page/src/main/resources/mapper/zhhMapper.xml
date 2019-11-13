@@ -2,4 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.jk.zhhMapper.zhhMapper" >
 
+ <insert id="savePartner"  parameterType="com.jk.model.PartnerBean">
+insert   into t_partner(age,hight,monthlyIncome,educationId,maritalStatusId,childrenId,smokeId,drinkId)
+values (#{age},#{hight},#{monthlyIncome},#{educationid},#{maritalstatusid},#{childrenId},#{smokeId},#{drinkId})
+
+ </insert>
+
 </mapper>

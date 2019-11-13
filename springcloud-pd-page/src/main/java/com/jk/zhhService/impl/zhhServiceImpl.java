@@ -1,6 +1,6 @@
 package com.jk.zhhService.impl;
 
-import com.jk.model.TreeBean;
+import com.jk.model.*;
 import com.jk.zhhMapper.zhhMapper;
 import com.jk.zhhService.zhhService;
 
@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -42,6 +43,9 @@ public class zhhServiceImpl implements zhhService {
         return treeNode(id);
     }
 
+
+
+
     private List<TreeBean> treeNode(Integer id) {
         List<TreeBean> trees =zhhmapper.findTree(id);
         for (TreeBean treeBean : trees) {
@@ -55,5 +59,62 @@ public class zhhServiceImpl implements zhhService {
             }
         }
         return trees;
+    }
+
+
+    /**
+     * 查询是否喝酒下拉
+     * @return
+     */
+    @Override
+    public  List<DrinkBean> findDrink() {
+
+        return zhhmapper.findDrink();
+    }
+
+    /**
+     * 查询是否吸烟下拉
+     * @return
+     */
+    @Override
+    public List<SmokeBean> findSmoke() {
+        return zhhmapper.findSmoke();
+    }
+
+    /**
+     * 查询孩子表
+     * @return
+     */
+    @Override
+    public List<ChildrenBean> findChildren() {
+        return zhhmapper.findChildren();
+    }
+
+    /**
+     * 查询婚姻表
+     * @return
+     */
+    @Override
+    public List<MaritalStatusBean> findMaritalStatus() {
+        return zhhmapper.findMaritalStatus();
+    }
+
+
+    /**
+     * 查看学历表
+     * @return
+     */
+    @Override
+    public List<EducationBean> findEducation() {
+        return zhhmapper.findEducation();
+    }
+
+    /**
+     * 择偶表保存
+     * @param partnerBean
+     */
+    @Override
+    public void savePartner(PartnerBean partnerBean) {
+        zhhmapper.savePartner(partnerBean);
     }
 }
