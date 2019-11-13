@@ -70,4 +70,17 @@ public class HobbyBean {
     public void setUserid(Integer userid) {
         this.userid = userid;
     }
+
+    @Override
+    public String toString() {
+        return "HobbyBean{" +
+                "hobbyid=" + hobbyid +
+                ", hobbyname='" + hobbyname + '\'' +
+                ", food='" + food + '\'' +
+                ", celebrity='" + celebrity + '\'' +
+                ", book='" + book + '\'' +
+                ", thingtodo='" + thingtodo + '\'' +
+                ", userid=" + userid +
+                '}';
+    }
 }

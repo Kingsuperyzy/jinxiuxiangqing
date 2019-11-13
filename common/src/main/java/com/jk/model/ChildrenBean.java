@@ -23,4 +23,12 @@ public class ChildrenBean {
         this.childrenname = childrenname == null ? null : childrenname.trim();
     }
 
+
+    @Override
+    public String toString() {
+        return "ChildrenBean{" +
+                "childrenid=" + childrenid +
+                ", childrenname='" + childrenname + '\'' +
+                '}';
+    }
 }

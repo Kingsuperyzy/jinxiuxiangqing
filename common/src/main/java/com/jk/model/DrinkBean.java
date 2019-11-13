@@ -20,4 +20,12 @@ public class DrinkBean {
     public void setDrinkname(String drinkname) {
         this.drinkname = drinkname == null ? null : drinkname.trim();
     }
+
+    @Override
+    public String toString() {
+        return "DrinkBean{" +
+                "drinkid=" + drinkid +
+                ", drinkname='" + drinkname + '\'' +
+                '}';
+    }
 }

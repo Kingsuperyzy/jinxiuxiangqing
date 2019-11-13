@@ -20,4 +20,12 @@ public class EducationBean {
     public void setEducationname(String educationname) {
         this.educationname = educationname == null ? null : educationname.trim();
     }
+
+    @Override
+    public String toString() {
+        return "EducationBean{" +
+                "educationid=" + educationid +
+                ", educationname='" + educationname + '\'' +
+                '}';
+    }
 }

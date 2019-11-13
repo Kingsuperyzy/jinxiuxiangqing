@@ -40,4 +40,14 @@ public class CityBean {
     public void setType(Integer type) {
         this.type = type;
     }
+
+    @Override
+    public String toString() {
+        return "CityBean{" +
+                "id=" + id +
+                ", pid=" + pid +
+                ", cityname='" + cityname + '\'' +
+                ", type=" + type +
+                '}';
+    }
 }

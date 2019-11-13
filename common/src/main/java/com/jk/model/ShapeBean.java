@@ -20,4 +20,12 @@ public class ShapeBean {
     public void setShapename(String shapename) {
         this.shapename = shapename == null ? null : shapename.trim();
     }
+
+    @Override
+    public String toString() {
+        return "ShapeBean{" +
+                "shapeid=" + shapeid +
+                ", shapename='" + shapename + '\'' +
+                '}';
+    }
 }
