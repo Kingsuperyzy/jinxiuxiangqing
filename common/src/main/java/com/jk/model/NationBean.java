@@ -20,4 +20,12 @@ public class NationBean {
     public void setNationname(String nationname) {
         this.nationname = nationname == null ? null : nationname.trim();
     }
+
+    @Override
+    public String toString() {
+        return "NationBean{" +
+                "nationid=" + nationid +
+                ", nationname='" + nationname + '\'' +
+                '}';
+    }
 }

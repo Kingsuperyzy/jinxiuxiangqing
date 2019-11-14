@@ -60,4 +60,16 @@ public class LifeBean {
     public void setUserid(Integer userid) {
         this.userid = userid;
     }
+
+    @Override
+    public String toString() {
+        return "LifeBean{" +
+                "lifeid=" + lifeid +
+                ", housingsituationid=" + housingsituationid +
+                ", carsituationid=" + carsituationid +
+                ", smokeid=" + smokeid +
+                ", drinkid=" + drinkid +
+                ", userid=" + userid +
+                '}';
+    }
 }

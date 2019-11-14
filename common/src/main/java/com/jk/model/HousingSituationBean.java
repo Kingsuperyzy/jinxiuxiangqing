@@ -20,4 +20,12 @@ public class HousingSituationBean {
     public void setHousingsituationname(String housingsituationname) {
         this.housingsituationname = housingsituationname == null ? null : housingsituationname.trim();
     }
+
+    @Override
+    public String toString() {
+        return "HousingSituationBean{" +
+                "housingsituationid=" + housingsituationid +
+                ", housingsituationname='" + housingsituationname + '\'' +
+                '}';
+    }
 }

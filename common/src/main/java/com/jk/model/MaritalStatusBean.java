@@ -1,23 +1,31 @@
 package com.jk.model;
 
 public class MaritalStatusBean {
-    private Integer maritalstatusid;
+    private Integer maritalstatusId;
 
-    private String maritalstatusname;
+    private String maritalstatusName;
 
-    public Integer getMaritalstatusid() {
-        return maritalstatusid;
+    public Integer getMaritalstatusId() {
+        return maritalstatusId;
     }
 
-    public void setMaritalstatusid(Integer maritalstatusid) {
-        this.maritalstatusid = maritalstatusid;
+    public void setMaritalstatusId(Integer maritalstatusId) {
+        this.maritalstatusId = maritalstatusId;
     }
 
-    public String getMaritalstatusname() {
-        return maritalstatusname;
+    public String getMaritalstatusName() {
+        return maritalstatusName;
     }
 
-    public void setMaritalstatusname(String maritalstatusname) {
-        this.maritalstatusname = maritalstatusname == null ? null : maritalstatusname.trim();
+    public void setMaritalstatusName(String maritalstatusName) {
+        this.maritalstatusName = maritalstatusName;
+    }
+
+    @Override
+    public String toString() {
+        return "MaritalStatusBean{" +
+                "maritalstatusId=" + maritalstatusId +
+                ", maritalstatusName='" + maritalstatusName + '\'' +
+                '}';
     }
 }
