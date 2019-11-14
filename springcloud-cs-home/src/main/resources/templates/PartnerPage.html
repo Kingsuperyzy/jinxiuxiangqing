@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -16,28 +16,29 @@
 </head>
 <body>
 <form id="partnerForm" class="form-horizontal">
+    <input type="hidden" name="partnerid" id="partnerid" >
     <div class="form-group">
         <label  class="col-sm-2 control-label">年龄</label>
         <div class="col-sm-4">
-            <input type="text"  class="form-control"  name="age"/>
+            <input type="text"  class="form-control"  name="age"  id="ageid"/>
         </div>
     </div>
     <div class="form-group">
         <label  class="col-sm-2 control-label">身高</label>
         <div class="col-sm-4">
-            <input type="text"  class="form-control"  name="hight"/>
+            <input type="text"  class="form-control"  name="hight" id="hightid"/>
         </div>
     </div>
     <div class="form-group">
         <label  class="col-sm-2 control-label">月收入</label>
         <div class="col-sm-4">
-            <input type="text"  class="form-control"  name="monthlyIncome"/>
+            <input type="text"  class="form-control"  name="monthlyIncome" id="monthlyIncomeid"/>
         </div>
     </div>
     <div class="form-group">
         <label  class="col-sm-2 control-label">学历</label>
         <div class="col-sm-4">
-            <select  id="educationselect" class="form-control" name="educationid"></select>
+            <select  id="educationselect" class="form-control" name="educationId" ></select>
         </div>
     </div>
     <div class="form-group">
@@ -73,18 +74,47 @@
      </div>
 </form>
 </body>
+<script th:inline="javascript">
+    var partnerId = [[${partnerId}]];
+
+    $("#partnerid").val(partnerId);
+</script>
 <script>
 
 
     $(function(){
 
-          initDrink();  //初始化是否喝酒下拉
+          /*initDrink();  //初始化是否喝酒下拉
           initSmoke();   //初始化是否吸烟下拉
           initChildren();  //初始化孩子表下拉
           initMaritalStatus();  //初始化婚姻状况表
-          initEducation();   //初始化学历表
+          initEducation();   //初始化学历表*/
+        findUserById();  //通过用户id查看用户
 
       })
+
+      //回显
+    function findUserById(){
+        initEducation();   //初始化学历表
+        initDrink();  //初始化是否喝酒下拉
+        initSmoke();   //初始化是否吸烟下拉
+        initChildren();  //初始化孩子表下拉
+        initMaritalStatus();  //初始化婚姻状况表
+
+
+        $.post("../zhh/findPartnerById",{userId:partnerId},function(data){
+            $("#ageid").val(data.age);
+            $("#hightid").val(data.hight);
+            $("#monthlyIncomeid").val(data.monthlyIncome);
+            $("#educationselect").val(data.educationId);
+            $("#maritalStatusselect").val(data.maritalstatusid);
+            $("#Childrenselect").val(data.childrenId);
+            $("#smokeselect").val(data.smokeId);
+            $("#drinkselect").val(data.drinkId);
+
+
+        })
+    }
 
       //新增修改保存
       function searchPartner(){
@@ -96,10 +126,10 @@
               success:function(data){
                   if(data){
 
-                          alert("保存成功");
+                      bootbox.alert("保存成功");
 
                      }else{
-                     alert("保存失败");
+                      bootbox.alert("保存失败");
 
 
                   }
@@ -113,14 +143,19 @@
 
       //初始化学历表
        function  initEducation(){
-           $.post('../zhh/findEducation',{},function(data){
-               var html ='<option  value="-1">请选择</option>';
-               for (var i = 0; i < data.length; i++) {
-                   html+='<option  value="'+data[i].educationId+'">'+data[i].educationName+'</option>';
+           $.ajax({
+               url:"../zhh/findEducation",
+               type:"post",
+               async:false,
+               data:{},
+               success:function(data){
+                   var html="<option value='-1'>请选择</option>";
+                   for (var i = 0; i < data.length; i++) {
+                       html+="<option value='"+data[i].educationId+"'>"+data[i].educationName+"</option>";
+                   }
+                   $("#educationselect").html(html);
                }
-               $("#educationselect").html(html);
            })
-
 
        }
 

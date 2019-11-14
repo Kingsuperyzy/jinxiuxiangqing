@@ -96,5 +96,15 @@ public class zhhController implements zhhServices{
         zhhservice.savePartner(partnerBean);
     }
 
+    /**
+     * 择偶表回显
+     * @param userId
+     * @return
+     */
+    @Override
+    public PartnerBean findPartnerById(Integer userId) {
+        return zhhservice.findPartnerById(userId);
+    }
+
 
 }

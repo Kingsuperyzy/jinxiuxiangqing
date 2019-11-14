@@ -38,4 +38,6 @@ public interface zhhService {
     List<EducationBean> findEducation();
 
     void savePartner(PartnerBean partnerBean);
+
+    PartnerBean findPartnerById(Integer userId);
 }

@@ -7,7 +7,8 @@ public class PartnerBean {
 
     private String hight;
 
-    private Integer educationid;
+    private Integer educationId;
+    private String educationName;
 
     private Integer maritalstatusid;
 
@@ -16,6 +17,7 @@ public class PartnerBean {
     private   String   monthlyIncome;
 
     private  Integer  provinceId;
+
 
     private   Integer   cityId;
 
@@ -26,6 +28,15 @@ public class PartnerBean {
     private   Integer  smokeId;
 
     private   Integer  drinkId;
+
+
+    public String getEducationName() {
+        return educationName;
+    }
+
+    public void setEducationName(String educationName) {
+        this.educationName = educationName;
+    }
 
     public Integer getPartnerid() {
         return partnerid;
@@ -51,12 +62,12 @@ public class PartnerBean {
         this.hight = hight;
     }
 
-    public Integer getEducationid() {
-        return educationid;
+    public Integer getEducationId() {
+        return educationId;
     }
 
-    public void setEducationid(Integer educationid) {
-        this.educationid = educationid;
+    public void setEducationId(Integer educationId) {
+        this.educationId = educationId;
     }
 
     public Integer getMaritalstatusid() {
@@ -137,7 +148,8 @@ public class PartnerBean {
                 "partnerid=" + partnerid +
                 ", age=" + age +
                 ", hight='" + hight + '\'' +
-                ", educationid=" + educationid +
+                ", educationId=" + educationId +
+                ", educationName='" + educationName + '\'' +
                 ", maritalstatusid=" + maritalstatusid +
                 ", userId=" + userId +
                 ", monthlyIncome='" + monthlyIncome + '\'' +

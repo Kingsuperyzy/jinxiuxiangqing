@@ -117,4 +117,14 @@ public class zhhServiceImpl implements zhhService {
     public void savePartner(PartnerBean partnerBean) {
         zhhmapper.savePartner(partnerBean);
     }
+
+    /**
+     * 择偶表回显
+     * @param userId
+     * @return
+     */
+    @Override
+    public PartnerBean findPartnerById(Integer userId) {
+        return zhhmapper.findPartnerById(userId);
+    }
 }

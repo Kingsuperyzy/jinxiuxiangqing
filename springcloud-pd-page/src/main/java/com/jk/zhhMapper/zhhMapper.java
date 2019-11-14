@@ -65,7 +65,7 @@ public interface zhhMapper {
      * 查看学历表
      * @return
      */
-    @Select("select   te.educationId , te.educationName from t_education  te")
+    @Select("select  te.educationId, te.educationName from t_education  te")
     List<EducationBean> findEducation();
 
     /**
@@ -73,4 +73,12 @@ public interface zhhMapper {
      * @param partnerBean
      */
     void savePartner(PartnerBean partnerBean);
+
+    /**
+     * 择偶表回显
+     * @param userId
+     * @return
+     */
+    @Select("select   * from  t_partner tp where  tp.partnerId = #{userId}")
+    PartnerBean findPartnerById(Integer userId);
 }

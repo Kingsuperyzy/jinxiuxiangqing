@@ -109,5 +109,17 @@ public class zhhController {
        }
 
 
+    /**
+     * 择偶表回显
+     * @param userId
+     * @return
+     */
+    @RequestMapping("findPartnerById")
+    @ResponseBody
+    public PartnerBean findPartnerById(Integer userId){
+
+        return   zhhservice.findPartnerById(userId);
+    }
+
 
 }

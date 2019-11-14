@@ -4,7 +4,7 @@
 
  <insert id="savePartner"  parameterType="com.jk.model.PartnerBean">
 insert   into t_partner(age,hight,monthlyIncome,educationId,maritalStatusId,childrenId,smokeId,drinkId)
-values (#{age},#{hight},#{monthlyIncome},#{educationid},#{maritalstatusid},#{childrenId},#{smokeId},#{drinkId})
+values (#{age},#{hight},#{monthlyIncome},#{educationId},#{maritalstatusid},#{childrenId},#{smokeId},#{drinkId})
 
  </insert>
 
