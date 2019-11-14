@@ -22,4 +22,22 @@ public interface YsSService {
     List<ChildrenBean> querychildrenid();
 
     List<MarriedBean> querymarriedid();
+
+    void updateDetailUser(DetailsBean detailsBean);
+
+    HobbyBean findHobbyById(Integer userId);
+
+    void updateHobby(HobbyBean hobbyBean);
+
+    LifeBean findWorkById(Integer userId);
+
+    List<HousingSituationBean> queryhousingsituationid();
+
+    List<CarSituationBean> querycarsituationid();
+
+    List<SmokeBean> querysmokeid();
+
+    List<DrinkBean> querydrinkid();
+
+    void updateWorkUser(LifeBean lifeBean);
 }

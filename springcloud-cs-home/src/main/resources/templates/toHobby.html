@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/bootstra3/js/bootstrap.js"></script>
+<link rel="stylesheet" href="../js/bootstra3/css/bootstrap.css">
+<script src="../js/bootstrap-table/bootstrap-table.js"></script>
+<link rel="stylesheet" href="../js/bootstrap-table/bootstrap-table.css">
+<script src="../js/bootstrap-table/locale/bootstrap-table-zh-CN.js"></script>
+<script src="../js/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+<script src="../js/bootstrap-datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+<link rel="stylesheet" href="../js/bootstrap-datetimepicker/css/bootstrap-datetimepicker.css">
+<script src="../js/bootstrap-bootbox/bootbox.all.min.js"></script>
+<body>
+<form id="userForm" class="form-horizontal">
+
+    <input type="text" name="userid" id="userid" style="display: none">
+    <input type="text" name="hobbyid" id="hobbyid" style="display: none">
+    <div class="form-group">
+    </div>
+    <div class="form-group">
+        <label  class="col-sm-2 control-label">喜欢的一道菜</label>
+        <div class="col-sm-5">
+            <input type="text" placeholder="一个菜名 说出最符合你口味的一道菜" class="form-control" id="queryfood"   name="food">
+        </div>
+
+        <div class="col-sm-8"></div>
+    </div>
+
+    <div class="form-group">
+        <label  class="col-sm-2 control-label">欣赏的一个名人</label>
+        <div class="col-sm-5">
+            <input type="text" placeholder="一个名字 最让你钦佩的名人是谁"  class="form-control" id="querycelebrity"  name="celebrity">
+        </div>
+        <div class="col-sm-8"></div>
+    </div>
+    <!-- 第六行 -->
+    <div class="form-group">
+        <label  class="col-sm-2 control-label">喜欢的一本书</label>
+        <div class="col-sm-5">
+            <input type="text" placeholder="一本书名 让你印象最深的一本书" class="form-control" id="querybook"  name="book">
+        </div>
+        <div class="col-sm-8"></div>
+    </div>
+
+
+
+    <div class="form-group">
+        <label  class="col-sm-2 control-label">喜欢做的事</label>
+        <div class="col-sm-5">
+            <input type="text"  placeholder="还有什么是你喜欢的"  class="form-control" id="querythingtodo"  name="thingtodo">
+        </div>
+        <div class="col-sm-8"></div>
+    </div>
+    <!-- 第七行 -->
+    <div class="form-group">
+        <div class="col-sm-4" align="right">
+            <button onclick="updateHobby()" type="button" class="btn btn-info"><i class="glyphicon glyphicon-plus"></i>保存</button>
+        </div>
+    </div>
+</form>
+</body>
+<script th:inline="javascript">
+    var userId = [[${userId}]];
+
+    $("#userid").val(userId);
+</script>
+
+
+<script>
+
+    $(function(){
+    findUserById();
+})
+
+
+function findUserById(){
+
+    alert(userId)
+    $.post("../ys/findHobbyById",{userId:userId},function(data){
+        $("#hobbyid").val(data.hobbyid);
+        $("#userid").val(data.userid);
+        $("#queryfood").val(data.food);
+        $("#querycelebrity").val(data.celebrity);
+        $("#querybook").val(data.book);
+        $("#querythingtodo").val(data.thingtodo);
+
+    })
+}
+
+
+//保存用户信息
+function updateHobby(){
+    $.ajax({
+        url:"../ys/updateHobby",
+        data:$("#userForm").serialize(),
+        type:"post",
+        success:function(data){
+            if (data) {
+                bootbox.alert("保存成功");
+
+            }else{
+                bootbox.alert("保存失败");
+            }
+        }
+    })
+}
+</script>
+
+
+</html>

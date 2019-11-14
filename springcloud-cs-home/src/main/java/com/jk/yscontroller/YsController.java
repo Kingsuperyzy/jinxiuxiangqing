@@ -41,6 +41,18 @@ public class YsController{
         return "detailedInformation";
     }
 
+ /**
+     * 跳转到详细资料页面
+     * @param model
+     * @param userId
+     * @return
+     */
+    @RequestMapping("toHobby")
+    public String toHobby(Model model,Integer userId){
+        model.addAttribute("userId",1);
+        return "toHobby";
+    }
+
 
     /**
      * 测试
@@ -64,6 +76,17 @@ public class YsController{
 
       return   ysService.findUserById(userId);
     }
+  /**
+     * 兴趣爱好回显
+     * @param userId
+     * @return
+     */
+    @RequestMapping("findHobbyById")
+    @ResponseBody
+    public HobbyBean findHobbyById(Integer userId){
+
+      return   ysService.findHobbyById(userId);
+    }
 
 
     /**
@@ -82,6 +105,23 @@ public class YsController{
             return false;
         }
     }
+  /**
+     * 修改 详细资料
+     * @param detailsBean
+     * @return
+     */
+    @RequestMapping("updateDetailUser")
+    @ResponseBody
+    public Boolean updateDetailUser(DetailsBean detailsBean){
+        try {
+            ysService.updateDetailUser(detailsBean);
+            return true;
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+    }
+
 
 
     /**
@@ -144,4 +184,114 @@ public class YsController{
     public DetailsBean findDetailById(Integer userId){
         return ysService.findDetailById(userId);
     }
+
+
+
+    /**
+     * 修改 兴趣爱好
+     * @param hobbyBean
+     * @return
+     */
+    @RequestMapping("updateHobby")
+    @ResponseBody
+    public Boolean updateHobby(HobbyBean hobbyBean){
+        try {
+            ysService.updateHobby(hobbyBean);
+            return true;
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+
+
+    /**
+     * 跳转到工作生活页面
+     * @param model
+     * @param userId
+     * @return
+     */
+    @RequestMapping("toWorkLife")
+    public String toWorkLife(Model model,Integer userId){
+        model.addAttribute("userId",1);
+        return "workLife";
+    }
+
+
+    /**
+     * 工作生活回显
+     * @param userId
+     * @return
+     */
+    @RequestMapping("findWorkById")
+    @ResponseBody
+    public LifeBean findWorkById(Integer userId){
+        return ysService.findWorkById(userId);
+    }
+
+    /**
+     * 查询是否买房
+     * @return
+     */
+    @RequestMapping("queryhousingsituationid")
+    @ResponseBody
+    public List<HousingSituationBean> queryhousingsituationid(){
+        return ysService.queryhousingsituationid();
+    }
+
+
+   /**
+     * 查询是否买车
+     * @return
+     */
+    @RequestMapping("querycarsituationid")
+    @ResponseBody
+    public List<CarSituationBean> querycarsituationid(){
+        return ysService.querycarsituationid();
+    }
+
+
+ /**
+     * 查询是否抽烟
+     * @return
+     */
+    @RequestMapping("querysmokeid")
+    @ResponseBody
+    public List<SmokeBean> querysmokeid(){
+        return ysService.querysmokeid();
+    }
+
+
+/**
+     * 查询是否喝酒
+     * @return
+     */
+    @RequestMapping("querydrinkid")
+    @ResponseBody
+    public List<DrinkBean> querydrinkid(){
+        return ysService.querydrinkid();
+    }
+
+
+    /**
+     * 修改 兴趣爱好
+     * @param
+     * @return
+     */
+    @RequestMapping("updateWorkUser")
+    @ResponseBody
+    public Boolean updateWorkUser(LifeBean lifeBean){
+        try {
+            ysService.updateWorkUser(lifeBean);
+            return true;
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+
+
+
 }

@@ -51,4 +51,49 @@ public class YsServiceImpl1 implements YsService {
     public List<MarriedBean> querymarriedid() {
         return null;
     }
+
+    @Override
+    public void updateDetailUser(DetailsBean detailsBean) {
+
+    }
+
+    @Override
+    public HobbyBean findHobbyById(Integer userId) {
+        return null;
+    }
+
+    @Override
+    public void updateHobby(HobbyBean hobbyBean) {
+
+    }
+
+    @Override
+    public LifeBean findWorkById(Integer userId) {
+        return null;
+    }
+
+    @Override
+    public List<HousingSituationBean> queryhousingsituationid() {
+        return null;
+    }
+
+    @Override
+    public List<CarSituationBean> querycarsituationid() {
+        return null;
+    }
+
+    @Override
+    public List<SmokeBean> querysmokeid() {
+        return null;
+    }
+
+    @Override
+    public List<DrinkBean> querydrinkid() {
+        return null;
+    }
+
+    @Override
+    public void updateWorkUser(LifeBean lifeBean) {
+
+    }
 }

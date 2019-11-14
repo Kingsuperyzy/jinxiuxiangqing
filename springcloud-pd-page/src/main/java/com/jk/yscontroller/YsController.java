@@ -58,4 +58,49 @@ public class YsController implements YsService {
     public List<MarriedBean> querymarriedid() {
         return ysSService.querymarriedid();
     }
+
+    @Override
+    public void updateDetailUser(DetailsBean detailsBean) {
+        ysSService.updateDetailUser(detailsBean);
+    }
+
+    @Override
+    public HobbyBean findHobbyById(Integer userId) {
+        return ysSService.findHobbyById(userId);
+    }
+
+    @Override
+    public void updateHobby(HobbyBean hobbyBean) {
+        ysSService.updateHobby(hobbyBean);
+    }
+
+    @Override
+    public LifeBean findWorkById(Integer userId) {
+        return ysSService.findWorkById(userId);
+    }
+
+    @Override
+    public List<HousingSituationBean> queryhousingsituationid() {
+        return ysSService.queryhousingsituationid();
+    }
+
+    @Override
+    public List<CarSituationBean> querycarsituationid() {
+        return ysSService.querycarsituationid();
+    }
+
+    @Override
+    public List<SmokeBean> querysmokeid() {
+        return ysSService.querysmokeid();
+    }
+
+    @Override
+    public List<DrinkBean> querydrinkid() {
+        return ysSService.querydrinkid();
+    }
+
+    @Override
+    public void updateWorkUser(LifeBean lifeBean) {
+        ysSService.updateWorkUser(lifeBean);
+    }
 }

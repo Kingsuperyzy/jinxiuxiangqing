@@ -58,4 +58,49 @@ public class YsSServiceImpl implements YsSService {
     public List<MarriedBean> querymarriedid() {
         return ysMapper.querymarriedid();
     }
+
+    @Override
+    public void updateDetailUser(DetailsBean detailsBean) {
+        ysMapper.updateDetailUser(detailsBean);
+    }
+
+    @Override
+    public HobbyBean findHobbyById(Integer userId) {
+        return ysMapper.findHobbyById(userId);
+    }
+
+    @Override
+    public void updateHobby(HobbyBean hobbyBean) {
+        ysMapper.updateHobby(hobbyBean);
+    }
+
+    @Override
+    public LifeBean findWorkById(Integer userId) {
+        return ysMapper.findWorkById(userId);
+    }
+
+    @Override
+    public List<HousingSituationBean> queryhousingsituationid() {
+        return ysMapper.queryhousingsituationid();
+    }
+
+    @Override
+    public List<CarSituationBean> querycarsituationid() {
+        return ysMapper.querycarsituationid();
+    }
+
+    @Override
+    public List<SmokeBean> querysmokeid() {
+        return ysMapper.querysmokeid();
+    }
+
+    @Override
+    public List<DrinkBean> querydrinkid() {
+        return ysMapper.querydrinkid();
+    }
+
+    @Override
+    public void updateWorkUser(LifeBean lifeBean) {
+        ysMapper.updateWorkUser(lifeBean);
+    }
 }

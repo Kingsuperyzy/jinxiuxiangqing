@@ -39,4 +39,31 @@ public interface YsService {
 
     @GetMapping("querymarriedid")
     List<MarriedBean> querymarriedid();
+
+    @PostMapping("updateDetailUser")
+    void updateDetailUser(@SpringQueryMap DetailsBean detailsBean);
+
+    @GetMapping("findHobbyById")
+    HobbyBean findHobbyById(@RequestParam Integer userId);
+
+    @PostMapping("updateHobby")
+    void updateHobby(@SpringQueryMap HobbyBean hobbyBean);
+
+    @GetMapping("findWorkById")
+    LifeBean findWorkById(@RequestParam Integer userId);
+
+    @GetMapping("queryhousingsituationid")
+    List<HousingSituationBean> queryhousingsituationid();
+
+    @GetMapping("querycarsituationid")
+    List<CarSituationBean> querycarsituationid();
+
+    @GetMapping("querysmokeid")
+    List<SmokeBean> querysmokeid();
+
+    @GetMapping("querydrinkid")
+    List<DrinkBean> querydrinkid();
+
+    @PostMapping("updateWorkUser")
+    void updateWorkUser(@SpringQueryMap LifeBean lifeBean);
 }

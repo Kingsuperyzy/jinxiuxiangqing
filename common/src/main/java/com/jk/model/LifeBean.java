@@ -5,13 +5,54 @@ public class LifeBean {
 
     private Integer housingsituationid;
 
+    private String  housingsituationname;//买房情况
+
     private Integer carsituationid;
+
+    private String  carsituationname;//买车情况
 
     private Integer smokeid;
 
+    private String  smokename;//是否吸烟
+
     private Integer drinkid;
 
+    private String  drinkname;//是否喝酒
+
     private Integer userid;
+
+
+    public String getHousingsituationname() {
+        return housingsituationname;
+    }
+
+    public void setHousingsituationname(String housingsituationname) {
+        this.housingsituationname = housingsituationname;
+    }
+
+    public String getCarsituationname() {
+        return carsituationname;
+    }
+
+    public void setCarsituationname(String carsituationname) {
+        this.carsituationname = carsituationname;
+    }
+
+    public String getSmokename() {
+        return smokename;
+    }
+
+    public void setSmokename(String smokename) {
+        this.smokename = smokename;
+    }
+
+    public String getDrinkname() {
+        return drinkname;
+    }
+
+    public void setDrinkname(String drinkname) {
+        this.drinkname = drinkname;
+    }
 
     public Integer getLifeid() {
         return lifeid;
@@ -66,9 +107,13 @@ public class LifeBean {
         return "LifeBean{" +
                 "lifeid=" + lifeid +
                 ", housingsituationid=" + housingsituationid +
+                ", housingsituationname='" + housingsituationname + '\'' +
                 ", carsituationid=" + carsituationid +
+                ", carsituationname='" + carsituationname + '\'' +
                 ", smokeid=" + smokeid +
+                ", smokename='" + smokename + '\'' +
                 ", drinkid=" + drinkid +
+                ", drinkname='" + drinkname + '\'' +
                 ", userid=" + userid +
                 '}';
     }
