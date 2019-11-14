@@ -1,34 +1,33 @@
 package com.jk.model;
 
 public class ChildrenBean {
-    private Integer childrenid;
+    private Integer childrenId;
 
-    private String childrenname;
+    private String childrenName;
 
 
-
-    public Integer getChildrenid() {
-        return childrenid;
+    public Integer getChildrenId() {
+        return childrenId;
     }
 
-    public void setChildrenid(Integer childrenid) {
-        this.childrenid = childrenid;
+    public void setChildrenId(Integer childrenId) {
+        this.childrenId = childrenId;
     }
 
-    public String getChildrenname() {
-        return childrenname;
+    public String getChildrenName() {
+        return childrenName;
     }
 
-    public void setChildrenname(String childrenname) {
-        this.childrenname = childrenname == null ? null : childrenname.trim();
+    public void setChildrenName(String childrenName) {
+        this.childrenName = childrenName;
     }
 
 
     @Override
     public String toString() {
         return "ChildrenBean{" +
-                "childrenid=" + childrenid +
-                ", childrenname='" + childrenname + '\'' +
+                "childrenId=" + childrenId +
+                ", childrenName='" + childrenName + '\'' +
                 '}';
     }
 }

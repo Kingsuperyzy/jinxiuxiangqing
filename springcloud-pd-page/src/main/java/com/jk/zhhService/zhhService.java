@@ -1,7 +1,8 @@
 package com.jk.zhhService;
 
-import com.jk.model.TreeBean;
+import com.jk.model.*;
 
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -21,5 +22,22 @@ import java.util.List;
 public interface zhhService {
 
 
+
     List<TreeBean> findTree();
+
+
+    List<DrinkBean> findDrink();
+
+
+    List<SmokeBean> findSmoke();
+
+    List<ChildrenBean> findChildren();
+
+    List<MaritalStatusBean> findMaritalStatus();
+
+    List<EducationBean> findEducation();
+
+    void savePartner(PartnerBean partnerBean);
+
+    PartnerBean findPartnerById(Integer userId);
 }

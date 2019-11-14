@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/bootstra3/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="../js/bootstra3/css/bootstrap.css"/>
+    <script src="../js/bootstrap-table/bootstrap-table.js"></script>
+    <link rel="stylesheet" href="../js/bootstrap-table/bootstrap-table.css"/>
+    <script src="../js/bootstrap-table/locale/bootstrap-table-zh-CN.js"></script>
+    <script src="../js/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+    <script src="../js/bootstrap-datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+    <link rel="stylesheet" href="../js/bootstrap-datetimepicker/css/bootstrap-datetimepicker.css"/>
+    <script src="../js/bootstrap-bootbox/bootbox.all.min.js"></script>
+</head>
+<body>
+<form id="partnerForm" class="form-horizontal">
+    <input type="hidden" name="partnerid" id="partnerid" >
+    <div class="form-group">
+        <label  class="col-sm-2 control-label">年龄</label>
+        <div class="col-sm-4">
+            <input type="text"  class="form-control"  name="age"  id="ageid"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label  class="col-sm-2 control-label">身高</label>
+        <div class="col-sm-4">
+            <input type="text"  class="form-control"  name="hight" id="hightid"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label  class="col-sm-2 control-label">月收入</label>
+        <div class="col-sm-4">
+            <input type="text"  class="form-control"  name="monthlyIncome" id="monthlyIncomeid"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label  class="col-sm-2 control-label">学历</label>
+        <div class="col-sm-4">
+            <select  id="educationselect" class="form-control" name="educationId" ></select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label  class="col-sm-2 control-label">婚姻状况</label>
+        <div class="col-sm-4">
+            <select  id="maritalStatusselect" class="form-control" name="maritalstatusid"></select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label  class="col-sm-2 control-label">有没有孩子</label>
+        <div class="col-sm-4">
+            <select  id="Childrenselect" class="form-control" name="childrenId"></select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label  class="col-sm-2 control-label">是否吸烟</label>
+        <div class="col-sm-4">
+            <select  id="smokeselect" class="form-control" name="smokeId"></select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label  class="col-sm-2 control-label">是否喝酒</label>
+        <div class="col-sm-4">
+            <select  id="drinkselect" class="form-control" name="drinkId"></select>
+        </div>
+    </div>
+    <div  class="form-group">
+        <div class="col-sm-4 col-sm-offset-2">
+            <button onclick="searchPartner()" type="button" class="btn btn-info btn-lg btn-block">
+                <i>保存并继续</i>
+            </button>
+        </div>
+     </div>
+</form>
+</body>
+<script th:inline="javascript">
+    var partnerId = [[${partnerId}]];
+
+    $("#partnerid").val(partnerId);
+</script>
+<script>
+
+
+    $(function(){
+
+          /*initDrink();  //初始化是否喝酒下拉
+          initSmoke();   //初始化是否吸烟下拉
+          initChildren();  //初始化孩子表下拉
+          initMaritalStatus();  //初始化婚姻状况表
+          initEducation();   //初始化学历表*/
+        findUserById();  //通过用户id查看用户
+
+      })
+
+      //回显
+    function findUserById(){
+        initEducation();   //初始化学历表
+        initDrink();  //初始化是否喝酒下拉
+        initSmoke();   //初始化是否吸烟下拉
+        initChildren();  //初始化孩子表下拉
+        initMaritalStatus();  //初始化婚姻状况表
+
+
+        $.post("../zhh/findPartnerById",{userId:partnerId},function(data){
+            $("#ageid").val(data.age);
+            $("#hightid").val(data.hight);
+            $("#monthlyIncomeid").val(data.monthlyIncome);
+            $("#educationselect").val(data.educationId);
+            $("#maritalStatusselect").val(data.maritalstatusid);
+            $("#Childrenselect").val(data.childrenId);
+            $("#smokeselect").val(data.smokeId);
+            $("#drinkselect").val(data.drinkId);
+
+
+        })
+    }
+
+      //新增修改保存
+      function searchPartner(){
+          $.ajax({
+              url:'../zhh/savePartner',
+              type:'post',
+              data:$("#partnerForm").serialize(),
+              dataType:'josn',
+              success:function(data){
+                  if(data){
+
+                      bootbox.alert("保存成功");
+
+                     }else{
+                      bootbox.alert("保存失败");
+
+
+                  }
+
+              }
+
+          })
+
+      }
+
+
+      //初始化学历表
+       function  initEducation(){
+           $.ajax({
+               url:"../zhh/findEducation",
+               type:"post",
+               async:false,
+               data:{},
+               success:function(data){
+                   var html="<option value='-1'>请选择</option>";
+                   for (var i = 0; i < data.length; i++) {
+                       html+="<option value='"+data[i].educationId+"'>"+data[i].educationName+"</option>";
+                   }
+                   $("#educationselect").html(html);
+               }
+           })
+
+       }
+
+
+
+      //初始化婚姻表下拉
+      function  initMaritalStatus(){
+          $.post('../zhh/findMaritalStatus',{},function(data){
+              var html ='<option  value="-1">请选择</option>';
+              for (var i = 0; i < data.length; i++) {
+                  html+='<option  value="'+data[i].maritalstatusId+'">'+data[i].maritalstatusName+'</option>';
+              }
+              $("#maritalStatusselect").html(html);
+          })
+
+      }
+
+
+      //初始化孩子表下拉
+       function  initChildren(){
+           $.post('../zhh/findChildren',{},function(data){
+               var html ='<option  value="-1">请选择</option>';
+               for (var i = 0; i < data.length; i++) {
+                   html+='<option  value="'+data[i].childrenId+'">'+data[i].childrenName+'</option>';
+               }
+               $("#Childrenselect").html(html);
+           })
+
+       }
+
+      //初始化是否喝酒下拉
+      function  initDrink(){
+          $.post('../zhh/findDrink',{},function(data){
+              var html ='<option  value="-1">请选择</option>';
+              for (var i = 0; i < data.length; i++) {
+                  html+='<option  value="'+data[i].drinkId+'">'+data[i].drinkName+'</option>';
+              }
+              $("#drinkselect").html(html);
+          })
+      }
+
+      //初始化是否吸烟下拉
+      function  initSmoke(){
+          $.post('../zhh/findSmoke',{},function(data){
+              var html ='<option  value="-1">请选择</option>';
+              for (var i = 0; i < data.length; i++) {
+                  html+='<option  value="'+data[i].smokeId+'">'+data[i].smokeName+'</option>';
+              }
+              $("#smokeselect").html(html);
+          })
+      }
+
+
+
+</script>
+</html>
