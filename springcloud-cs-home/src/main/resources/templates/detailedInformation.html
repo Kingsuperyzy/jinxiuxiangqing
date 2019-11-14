@@ -16,8 +16,8 @@
 <script src="../js/bootstrap-bootbox/bootbox.all.min.js"></script>
 <body>
 <form id="userForm" class="form-horizontal">
-    <input type="text" name="detailsid" id="detailsid">
-    <input type="text" name="userid" id="userid" >
+    <input type="text" style="display: none" name="detailsid" id="detailsid">
+    <input type="text" style="display: none" name="userid" id="userid" >
     <div class="form-group">
     </div>
     <!-- 第一行 -->
@@ -142,7 +142,7 @@
             success:function(data){
                 var html="<option value='-1'>请选择</option>";
                 for (var i = 0; i < data.length; i++) {
-                    html+="<option value='"+data[i].childrenid+"'>"+data[i].childrenname+"</option>";
+                    html+="<option value='"+data[i].childrenId+"'>"+data[i].childrenName+"</option>";
                 }
                 $("#querychildrenid").html(html);
             }
@@ -173,7 +173,7 @@ function querymarriedid(){
 
     function findUserById(){
 
-        alert(userId)
+
         queryshapeid();
         queryconstellationid();
         querynationid()
