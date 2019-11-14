@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div style="width:1525px;height:100px;margin-left:0px;background-color:#F1F1F1;float:left" >
+    <div style="width:100px;height:100px;margin-left:80px;background-color:;float:left">
+        <img src="../img/jinxiu_Img.png" height="100px"width="100px"/>
+    </div>
+    <!-- 我的锦绣 -->
+    <div style="width:100px;height:100px;margin-left:150px;background-color:;float:left">
+        <div style="width:100px;height:50px;margin-top:25px;background-color:;float:left">
+            <div style="width:100px;height:px;margin-top:10px;background-color:;float:left">
+                <font color="#996EF0" size="5px" face="微软雅黑">
+                    <a href="../message/toMessage" style="text-decoration:none">我的锦绣</a>
+                </font>
+            </div>
+        </div>
+    </div>
+    <!-- 搜索 -->
+    <div style="width:100px;height:100px;margin-left:100px;background-color:;float:left">
+        <div style="width:100px;height:50px;margin-top:25px;background-color:;float:left">
+            <div style="width:100px;height:px;margin-top:10px;background-color:;float:left">
+                <font color="#996EF0" size="5px" face="微软雅黑">
+                    <a href="#" style="text-decoration:none">搜索</a>
+                </font>
+            </div>
+        </div>
+    </div>
+    <!-- 直营门店 -->
+    <div style="width:100px;height:100px;margin-left:50px;background-color:;float:left">
+        <div style="width:100px;height:50px;margin-top:25px;background-color:;float:left">
+            <div style="width:100px;height:px;margin-top:10px;background-color:;float:left">
+                <font color="#996EF0" size="5px" face="微软雅黑">
+                    <a href="#" style="text-decoration:none">直营门店</a>
+                </font>
+            </div>
+        </div>
+    </div>
+    <!-- 锦绣会员 -->
+    <div style="width:100px;height:100px;margin-left:50px;background-color:;float:left">
+        <div style="width:100px;height:50px;margin-top:25px;background-color:;float:left">
+            <div style="width:100px;height:px;margin-top:10px;background-color:;float:left">
+                <font color="#996EF0" size="5px" face="微软雅黑">
+                    <a href="#" style="text-decoration:none">锦绣会员</a>
+                </font>
+            </div>
+        </div>
+    </div>
+</div>
+<div style="width:1350px;height:165px;margin-left:80px;margin-top:20px;background-color:;float:left">
+    <a href="#"><img src="../img/ppp.png" width="1350px" height="165px"></a>
+</div>
+<div style="width:1350px;height:165px;margin-left:80px;margin-top:20px;float:left">
+    <pre><a href="../message/toMessagelook"  style="text-decoration:none"><font size="6px" face="微软雅黑">刚刚看过我</font></a>                                                             <a href="../message/toMessagexiaoxi"  style="text-decoration:none"><font size="6px" face="微软雅黑">未读消息</font></a>                                                             <a href="../message/toMessagegzme"  style="text-decoration:none"><font size="6px" face="微软雅黑">关注我的人</font></a></pre>
+</div>
+<div style="width:1350px;height:165px;margin-left:80px;margin-top:20px;float:left">
+    <div class="table" id="myTable"></div>
+</div>
+</body>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/bootstrap3/js/bootstrap.js"></script>
+<link rel="stylesheet" href="../js/bootstrap3/css/bootstrap.css"/>
+
+<script src="../js/bootstrap-treeview/bootstrap-treeview.min.js"></script>
+<link rel="stylesheet" href="../js/bootstrap-treeview/bootstrap-treeview.min.css">
+
+<script src="../js/bootStrap-addTabs/bootstrap.addtabs.js"></script>
+<link rel="stylesheet" href="../js/bootStrap-addTabs/bootstrap.addtabs.css">
+<script type="text/javascript">
+    /*$(function(){
+        initMusicList();
+    })*/
+    function initMusicList(){
+        $('#myTable').bootstrapTable({
+            url:'#',
+            method:'post',
+            columns:[
+                {field:'contact',title:'姓名',width:80},
+                {field:'xx',formatter:function(value,row,index){
+                        return row.provinceId+"-"+row.cityId+"-"+row.townId+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+row.address;
+                    },title:'地址',width:400},
+                {field:'mobile',title:'联系电话',width:100},
+                {field:'xxx',title:'是否默认',formatter:function(value,row,index){
+                        if(row.isDefault=="1"){
+
+                            return "默认地址";
+                        }else if(row.isDefault =="0"){
+                            var b = "";
+                            b += "<a href='javascript:UpdateDefault("+row.id+")'>设为默认</a>";
+                            return b;
+                        }
+                    }},
+                {field:'cz',title:'操作',formatter:function(value,row,index){
+                        var a = "";
+                        a += "<button onclick='openUpdate("+row.id+")' type='button' class='btn btn-primary'>编辑</button>";
+                        a += "    |   <button onclick='deleteAll("+row.id+")' type='button' class='btn btn-primary'>删除</button>";
+                        return a;
+                    }}
+
+            ]
+        });
+    }
+</script>
+</html>
