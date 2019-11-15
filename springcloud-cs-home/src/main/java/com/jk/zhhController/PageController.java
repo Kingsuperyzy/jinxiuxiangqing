@@ -43,6 +43,17 @@ public class PageController {
           model.addAttribute("partnerId",1);
         return "PartnerPage";
     }
+    /**
+     * @Author yzy
+     * @Description //TODO 登录页面
+     * @Date 22:26 2019/11/14
+     * @Param []
+     * @return java.lang.String
+     **/
+    @RequestMapping("tologin")
+    public String toLogin(){
 
-
+        System.out.println("11111");
+        return "login.html";
+    }
 }

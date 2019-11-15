@@ -117,7 +117,7 @@
             success:function(data){
                 var html="<option value='-1'>请选择</option>";
                 for (var i = 0; i < data.length; i++) {
-                    html+="<option value='"+data[i].smokeid+"'>"+data[i].smokename+"</option>";
+                    html+="<option value='"+data[i].smokeId+"'>"+data[i].smokeName+"</option>";
                 }
                 $("#querysmokeid").html(html);
             }
@@ -133,7 +133,7 @@
             success:function(data){
                 var html="<option value='-1'>请选择</option>";
                 for (var i = 0; i < data.length; i++) {
-                    html+="<option value='"+data[i].drinkid+"'>"+data[i].drinkname+"</option>";
+                    html+="<option value='"+data[i].drinkId+"'>"+data[i].drinkName+"</option>";
                 }
                 $("#querydrinkid").html(html);
             }
