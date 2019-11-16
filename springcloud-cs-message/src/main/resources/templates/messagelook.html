@@ -79,7 +79,7 @@
     function initMusicList(){
         $("#myTable").bootstrapTable({
             //toolbar:"#toolbar",
-            url:"../message/queryguanzhu",
+            url:"../message/querylookme",
             method:"post",
             contentType:'application/x-www-form-urlencoded',//post请求按照表单方式
             //pagination:true,
@@ -107,19 +107,39 @@
                         return "<img src='"+value+"' width='200' height='200'>"
                     }},
                 {title:"编号",field:"userid",width:"80"},
-                {title:"昵称",field:"username",width:"120"},
+                {title:"昵称",field:"username",width:"100"},
                 {title:"性别",field:"sex",width:"80",formatter:function (value, row, index) {
                         return value==1?"男":"女"
                     }},
                 {title:"地区",field:"provinceName",width:"150"},
                 {title:"月收入",field:"monthlyincome",width:"150"},
-                {title:"独白",field:"innermonologue",width:"520"},
+                {title:"独白",field:"innermonologue",width:"300"},
+                {title:"操作",field:"xxxx",width:"240",formatter:function(value,row,index){
+                        var a = "";
+                        a += "<button onclick='#' type='button' class='btn btn-primary'>打招呼</button>";
+                        a += "    |   <button onclick='guanzhu("+row.userid+")' type='button' class='btn btn-primary'>关注TA</button>";
+                        return a;
 
-
-
+                }}
             ]
 
         })
+    }
+    function guanzhu(userid){
+        $.ajax({
+
+            url:"../message/guanzhu",
+            data:{id:userid},
+            type:"post",
+            success:function(){
+
+                alert("关注成功");
+
+            },error:function(){
+                alert("关注错误");
+            }
+
+        });
     }
 
 </script>

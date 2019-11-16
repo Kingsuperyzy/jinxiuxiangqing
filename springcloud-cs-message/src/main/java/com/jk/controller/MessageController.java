@@ -1,5 +1,6 @@
 package com.jk.controller;
 
+import com.jk.model.AttentionBean;
 import com.jk.model.UserBean;
 import com.jk.zkx.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,6 +53,43 @@ public class MessageController {
     @ResponseBody
     public List<UserBean> queryguanzhu(){
         return messageService.queryguanzhu();
+    }
+//我关注的人
+    @RequestMapping("querywoguanzhuderen")
+    @ResponseBody
+    public List<UserBean> querywoguanzhuderen(){
+        int userid = 1;
+        return messageService.querywoguanzhuderen(userid);
+    }
+//关注我的人
+    @RequestMapping("queryguanzhuwoderen")
+    @ResponseBody
+    public List<UserBean> queryguanzhuwoderen(){
+        int userid = 1;
+        return messageService.queryguanzhuwoderen(userid);
+    }
+
+    //看过我的人
+    @RequestMapping("querylookme")
+    @ResponseBody
+    public List<UserBean> querylookme(){
+        int userid = 1;
+        return messageService.querylookme(userid);
+    }
+
+    //我看过的人
+    @RequestMapping("querymelook")
+    @ResponseBody
+    public List<UserBean> querymelook(){
+        int userid = 1;
+        return messageService.querymelook(userid);
+    }
+    //关注我的人
+    @RequestMapping("guanzhu")
+    @ResponseBody
+    public void guanzhu(Integer id){
+        int userid = 1;
+        messageService.guanzhu(userid,id);
     }
 
 }
