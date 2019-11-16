@@ -78,7 +78,7 @@
 
     function queryhousingsituationid(){
         $.ajax({
-            url:"../ys/queryhousingsituationid",
+            url:"http://localhost:9100/api-a/ys/queryhousingsituationid",
             type:"post",
             async:false,
             data:{},
@@ -94,7 +94,7 @@
     }
     function querycarsituationid(){
         $.ajax({
-            url:"../ys/querycarsituationid",
+            url:"http://localhost:9100/api-a/ys/querycarsituationid",
             type:"post",
             async:false,
             data:{},
@@ -110,7 +110,7 @@
     }
     function querysmokeid(){
         $.ajax({
-            url:"../ys/querysmokeid",
+            url:"http://localhost:9100/api-a/ys/querysmokeid",
             type:"post",
             async:false,
             data:{},
@@ -126,7 +126,7 @@
     }
     function querydrinkid(){
         $.ajax({
-            url:"../ys/querydrinkid",
+            url:"http://localhost:9100/api-a/ys/querydrinkid",
             type:"post",
             async:false,
             data:{},
@@ -154,7 +154,7 @@
         querycarsituationid();
         querysmokeid()
         querydrinkid();
-        $.post("../ys/findWorkById",{userId:userId},function(data){
+        $.post("http://localhost:9100/api-a/ys/findWorkById",{userId:userId},function(data){
             $("#lifeid").val(data.lifeid);
             $("#userid").val(data.userid);
             $("#queryhousingsituationid").val(data.housingsituationid);
@@ -168,7 +168,7 @@
     //保存用户信息
     function updateWorkUser(){
         $.ajax({
-            url:"../ys/updateWorkUser",
+            url:"http://localhost:9100/api-a/ys/updateWorkUser",
             data:$("#userForm").serialize(),
             type:"post",
             success:function(data){

@@ -68,6 +68,8 @@
         </div>
         <div class="col-sm-8"></div>
     </div>
+
+
     <!-- 第七行 -->
     <div class="form-group">
         <div class="col-sm-4" align="right">
@@ -85,9 +87,11 @@
 
 <script>
 
+
+
     function queryshapeid(){
         $.ajax({
-            url:"../ys/queryshapeid",
+            url:"http://localhost:9100/api-a/ys/queryshapeid",
             type:"post",
             async:false,
             data:{},
@@ -103,7 +107,7 @@
     }
     function queryconstellationid(){
         $.ajax({
-            url:"../ys/queryconstellationid",
+            url:"http://localhost:9100/api-a/ys/queryconstellationid",
             type:"post",
             async:false,
             data:{},
@@ -119,7 +123,7 @@
     }
     function querynationid(){
         $.ajax({
-            url:"../ys/querynationid",
+            url:"http://localhost:9100/api-a/ys/querynationid",
             type:"post",
             async:false,
             data:{},
@@ -135,7 +139,7 @@
     }
     function querychildrenid(){
         $.ajax({
-            url:"../ys/querychildrenid",
+            url:"http://localhost:9100/api-a/ys/querychildrenid",
             type:"post",
             async:false,
             data:{},
@@ -151,7 +155,7 @@
     }
 function querymarriedid(){
         $.ajax({
-            url:"../ys/querymarriedid",
+            url:"http://localhost:9100/api-a/ys/querymarriedid",
             type:"post",
             async:false,
             data:{},
@@ -179,7 +183,7 @@ function querymarriedid(){
         querynationid()
         querychildrenid();
         querymarriedid();
-        $.post("../ys/findDetailById",{userId:userId},function(data){
+        $.post("http://localhost:9100/api-a/ys/findDetailById",{userId:userId},function(data){
             $("#detailsid").val(data.detailsid);
             $("#userid").val(data.userid);
            $("#queryshapeid").val(data.shapeid);
@@ -199,7 +203,7 @@ function querymarriedid(){
     //保存用户信息
     function updateDetailUser(){
         $.ajax({
-            url:"../ys/updateDetailUser",
+            url:"http://localhost:9100/api-a/ys/updateDetailUser",
             data:$("#userForm").serialize(),
             type:"post",
             success:function(data){

@@ -80,7 +80,7 @@
 function findUserById(){
 
     alert(userId)
-    $.post("../ys/findHobbyById",{userId:userId},function(data){
+    $.post("http://localhost:9100/api-a/ys/findHobbyById",{userId:userId},function(data){
         $("#hobbyid").val(data.hobbyid);
         $("#userid").val(data.userid);
         $("#queryfood").val(data.food);
@@ -95,7 +95,7 @@ function findUserById(){
 //保存用户信息
 function updateHobby(){
     $.ajax({
-        url:"../ys/updateHobby",
+        url:"http://localhost:9100/api-a/ys/updateHobby",
         data:$("#userForm").serialize(),
         type:"post",
         success:function(data){

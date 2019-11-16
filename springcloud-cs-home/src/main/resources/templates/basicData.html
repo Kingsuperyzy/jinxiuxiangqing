@@ -72,21 +72,35 @@
         </div>
         <div class="col-sm-8"></div>
     </div>
+     <div class="form-group">
+        <label class="col-sm-2 control-label">个人头像</label>
+        <div class="col-sm-5">
+            <input type="text" class="form-control" th:value="${user.userImg}" id="imgId">
+            <img class="img-responsive" alt="App Logo" th:src="@{user.userImg}" />
+
+        </div>
+        <div class="col-sm-8"></div>
+    </div>
+
     <!-- 第七行 -->
     <div class="form-group">
         <div class="col-sm-4" align="right">
             <button onclick="updateUser()" type="button" class="btn btn-info"><i class="glyphicon glyphicon-plus"></i>保存</button>
         </div>
     </div>
+
+
 </form>
 </body>
 
 <script>
 
+
+
     //保存用户信息
     function updateUser(){
         $.ajax({
-            url:"../ys/updateUser",
+            url:"http://localhost:9100/api-a/ys/updateUser",
             data:$("#userForm").serialize(),
             type:"post",
             success:function(data){
@@ -98,5 +112,7 @@
             }
         })
     }
+
+
 </script>
 </html>

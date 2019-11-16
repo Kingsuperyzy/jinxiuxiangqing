@@ -53,7 +53,7 @@
     })
     function initMyTree(){
 
-        $.post('../zhh/findTree',{},function(data){
+        $.post('http://localhost:9100/api-a/zhh/findTree',{},function(data){
             $("#myTree").treeview({
                 data:data,
                 onNodeSelected:function(event,node){

@@ -102,7 +102,7 @@
         initMaritalStatus();  //初始化婚姻状况表
 
 
-        $.post("../zhh/findPartnerById",{userId:partnerId},function(data){
+        $.post("http://localhost:9100/api-a/zhh/findPartnerById",{userId:partnerId},function(data){
             $("#ageid").val(data.age);
             $("#hightid").val(data.hight);
             $("#monthlyIncomeid").val(data.monthlyIncome);
@@ -119,7 +119,7 @@
       //新增修改保存
       function searchPartner(){
           $.ajax({
-              url:'../zhh/savePartner',
+              url:'http://localhost:9100/api-a/zhh/savePartner',
               type:'post',
               data:$("#partnerForm").serialize(),
               dataType:'josn',
@@ -144,7 +144,7 @@
       //初始化学历表
        function  initEducation(){
            $.ajax({
-               url:"../zhh/findEducation",
+               url:"http://localhost:9100/api-a/zhh/findEducation",
                type:"post",
                async:false,
                data:{},
@@ -163,7 +163,7 @@
 
       //初始化婚姻表下拉
       function  initMaritalStatus(){
-          $.post('../zhh/findMaritalStatus',{},function(data){
+          $.post('http://localhost:9100/api-a/zhh/findMaritalStatus',{},function(data){
               var html ='<option  value="-1">请选择</option>';
               for (var i = 0; i < data.length; i++) {
                   html+='<option  value="'+data[i].maritalstatusId+'">'+data[i].maritalstatusName+'</option>';
@@ -176,7 +176,7 @@
 
       //初始化孩子表下拉
        function  initChildren(){
-           $.post('../zhh/findChildren',{},function(data){
+           $.post('http://localhost:9100/api-a/zhh/findChildren',{},function(data){
                var html ='<option  value="-1">请选择</option>';
                for (var i = 0; i < data.length; i++) {
                    html+='<option  value="'+data[i].childrenId+'">'+data[i].childrenName+'</option>';
@@ -188,7 +188,7 @@
 
       //初始化是否喝酒下拉
       function  initDrink(){
-          $.post('../zhh/findDrink',{},function(data){
+          $.post('http://localhost:9100/api-a/zhh/findDrink',{},function(data){
               var html ='<option  value="-1">请选择</option>';
               for (var i = 0; i < data.length; i++) {
                   html+='<option  value="'+data[i].drinkId+'">'+data[i].drinkName+'</option>';
@@ -199,7 +199,7 @@
 
       //初始化是否吸烟下拉
       function  initSmoke(){
-          $.post('../zhh/findSmoke',{},function(data){
+          $.post('http://localhost:9100/api-a/zhh/findSmoke',{},function(data){
               var html ='<option  value="-1">请选择</option>';
               for (var i = 0; i < data.length; i++) {
                   html+='<option  value="'+data[i].smokeId+'">'+data[i].smokeName+'</option>';
